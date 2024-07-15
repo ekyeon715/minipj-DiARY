@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+
+        html,
+        body {
+            height: 100%;
+            font-size: 62.5%
+        }
+
+        .main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            text-align: center;
+        }
+
+        .diary {
+            height: 90%;
+            width: 800px;
+            border: 3px solid black;
+            background-color: white;
+            border-radius: 40px 0 0 40px;
+            position:relative;
+        }
+
+        .menu-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 90.3%;
+            margin-left: -2px;
+        }
+
+        .menu1,
+        .menu2,
+        .menu3,
+        .menu4,
+        .menu5 {
+            width: 50px;
+            background-color: white;
+            height: 20%;
+            border-radius: 0 10px 10px 0;
+            margin: -1px auto;
+            color: black;
+            display: flex;
+            justify-content: center;
+            border: 3px solid black;
+            transition: background-color 0.3s, color 0.3s, width 0.3s;
+        }
+
+        .matename {
+            writing-mode: vertical-rl;
+            font-size: 2.2rem;
+            letter-spacing: 0.3rem;
+            font-family: "Titillium Web", sans-serif;
+            font-weight: bold;
+        }
+
+        .menu1:hover {
+            background-color: #F2A2B8;
+            color: white;
+        }
+
+        .menu2:hover {
+            background-color: #1722ff;
+            color: white;
+        }
+
+        .menu3:hover {
+            background-color: #00aa1a;
+            color: white;
+        }
+
+        .menu4:hover {
+            background-color: #FF7E7E;
+            color: white;
+        }
+
+        .menu5:hover {
+            background-color: #DF0101;
+            color: white;
+        }
+
+        .title {
+            font-family: "Titillium Web", sans-serif;
+            font-weight: 200;
+            font-style: normal;
+            font-size: 11rem;
+            padding-top: 300px;
+        }
+
+        nav {
+            width: 400px;
+            height: 3px;
+            background-color: black;
+            margin: 0 auto;
+        }
+        
+
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="diary">
+            <section class="title"><span>DiARY</span></section>
+            <nav></nav>
+            <A href="목차페이지" style="text-decoration: none; color: inherit;"><p style="font-size: 2.5rem; margin: 0; font-family: Nanum Pen Script, cursive; margin: 20px 0 0 350px;">펼치기</p></A>
+        </div>
+        <div class="menu-container">
+            <div class="menu1"><span class="matename">DAYEON</span></div>
+            <div class="menu2"><span class="matename">SUJIN</span></div>
+            <div class="menu3"><span class="matename">HYUNJI</span></div>
+            <div class="menu4"><span class="matename">SUHEE</span></div>
+            <div class="menu5"><span class="matename">SEUNGWOO</span></div>
+        </div>
+    </div>
+</body>
+
+</html>
