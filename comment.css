@@ -61,3 +61,19 @@
     background-color: red;
     color: aliceblue;
 }
+
+#close {
+    animation: close 0.5s ease forwards;
+  }
+  
+  @keyframes close {
+    from {
+      transform: scaleX(3);
+      visibility: visible;
+      transition-timing-function: ease-out;
+    }
+  
+    to {
+      transform: scaleX(1);
+    }
+  }

@@ -218,3 +218,19 @@ body {
     font-family: 'UhBeeSe_hyun';
     font-size: 3vh;
 }
+
+#open {
+    animation: open 0.5s ease forwards;
+  }
+  
+  @keyframes open {
+    from {
+      transform: scaleX(0%);
+      visibility: visible;
+      transition-timing-function: ease-out;
+    }
+  
+    to {
+      transform: scaleX(100%);
+    }
+  }
