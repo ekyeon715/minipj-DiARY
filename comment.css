@@ -35,7 +35,7 @@
 }
 
 .eachComment .name{
-    font-size: 1.5em;
+    font-size: 0.8em;
     font-weight: bold;
     margin-bottom: 0.3em;
     display: flex;
@@ -43,7 +43,7 @@
 }
 
 .eachComment .inputValue{
-    font-size: 1.2em;
+    font-size: 1em;
     font-style: italic;
     display: flex;    
 }
