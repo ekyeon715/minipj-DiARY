@@ -1,0 +1,32 @@
+@font-face {
+    font-family: "SDGothic";
+    src: url("THE_HongChawangjanemo.ttf") format("truetype");
+    font-weight: normal;
+}
+
+html,
+body {
+    height: 100%;
+    background-image: url("https://cdn.discordapp.com/attachments/1254426162470584321/1262620893373530182/-001_6.png?ex=669742d7&is=6695f157&hm=1db4da07657fef1108e6415b312b9e0373dec87f45cc8b2218a1b07d3fbe0808&");
+    background-position: center;
+    background-size: cover;
+}
+
+.diary1 {
+    height: 90%;
+    width: 1000px;
+    border: 3px solid black;
+    border-radius: 20px 0 0 20px;
+    border-right: 3px solid #00aa1a;
+    background-color: #D0DBC9;
+    background-size: cover;
+}
+
+.diary2 {
+    height: 90%;
+    width: 1000px;
+    border: 3px solid black;
+    border-left: 3px solid #00aa1a;
+    background-color: #D0DBC9;
+    background-size: cover;
+}
