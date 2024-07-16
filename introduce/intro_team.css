@@ -67,10 +67,11 @@ body {
 .menu2,
 .menu3,
 .menu4,
-.menu5 {
+.menu5,
+.menu {
     width: 50px;
     background-color: white;
-    height: 20%;
+    height: 15%;
     border-radius: 0 10px 10px 0;
     margin: -1px auto;
     color: black;
@@ -82,10 +83,15 @@ body {
 
 .matename {
     writing-mode: vertical-rl;
-    font-size: 2vh;
-    letter-spacing: 0.3rem;
+    font-size: 1.8vh;
+    letter-spacing: 0.1vh;
     font-family: "Titillium Web", sans-serif;
     font-weight: bold;
+}
+
+.menu:hover {
+    background-color: black;
+    color: white;
 }
 
 .menu1:hover {
