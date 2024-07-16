@@ -1,12 +1,20 @@
-
-
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;400;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+
+/* 스크롤바 삭제 css */
+.scroll::-webkit-scrollbar {
+    display: none;
+}
+
+/* 드래그 색상 */
+::selection {
+    background: #f1b3b2;
+    color: #fff;
+}
 
 html,
 body {
     height: 100%;
-    font-size: 62.5%
 }
 
 .main {
@@ -43,7 +51,7 @@ body {
 .menu {
     width: 50px;
     background-color: white;
-    height: 20%;
+    height: 15%;
     border-radius: 0 10px 10px 0;
     margin: -1px auto;
     color: black;
@@ -58,7 +66,7 @@ body {
     font-size: 1.8vh;
     letter-spacing: 0.1vh;
     font-family: "Titillium Web", sans-serif;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 .menu:hover {
