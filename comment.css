@@ -4,11 +4,14 @@
 
 #comment-count{
     margin-bottom: 20px; 
+    margin-top: 30px;
 }
 
 #comment-input{
     width: 50%;
     height: 3.3em;
+    border-radius: 10px;
+    border: 1px solid #979797;
 }
 
 #submit{
@@ -18,6 +21,8 @@
     font-size: 15px;
     font-weight: bold;
     color: aliceblue;
+    border-radius: 10px;
+    border: 1px solid white;
 }
 
 
@@ -27,8 +32,8 @@
 }
 
 .eachComment{   
-    width :95%; 
-    margin: 30px;  
+    width :85%; 
+    margin: 5%;  
     padding: 0.5em; 
     border-bottom: 1px solid #c1bcba;
     
