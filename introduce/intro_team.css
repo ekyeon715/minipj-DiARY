@@ -12,6 +12,8 @@
     font-style: normal;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;400;600&display=swap');
+
 /* 스크롤바 삭제 css */
 .scroll::-webkit-scrollbar {
     display: none;
@@ -99,7 +101,7 @@ body {
     font-size: 1.8vh;
     letter-spacing: 0.1vh;
     font-family: "Titillium Web", sans-serif;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 .menu:hover {
@@ -151,11 +153,6 @@ body {
     width: 10%;
     height: auto;
     padding: 15px;
-}
-
-a {
-    text-decoration-line: none;
-    color: #6357cc;
 }
 
 .main_cont {
