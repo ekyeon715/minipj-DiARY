@@ -1,0 +1,217 @@
+@font-face {
+    font-family: 'EF_jejudoldam';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-EF@1.0/EF_jejudoldam.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'UhBeeSe_hyun';
+    src: url('https://gcore.jsdelivr.net/gh/projectnoonnu/noonfonts_five@.2.0/UhBeeSe_hyun.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 스크롤바 삭제 css */
+.scroll::-webkit-scrollbar {
+    display: none;
+}
+
+/* 드래그 색상 */
+::selection {
+    background: #f1b3b2;
+    color: #fff;
+}
+
+html,
+body {
+    height: 100%;
+    background-color: #f0e6d4;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+.diary1 {
+    height: 90%;
+    width: 1000px;
+    border: 3px solid black;
+    background-color: white;
+    border-radius: 20px 0 0 20px;
+    border-right: 3px solid #c5b28f;
+}
+
+.diary2 {
+    height: 90%;
+    width: 1000px;
+    border: 3px solid black;
+    border-left: 3px solid #c5b28f;
+    background-color: white;
+}
+
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 90.3%;
+    margin-left: -2px;
+}
+
+.menu1,
+.menu2,
+.menu3,
+.menu4,
+.menu5 {
+    width: 50px;
+    background-color: white;
+    height: 20%;
+    border-radius: 0 10px 10px 0;
+    margin: -1px auto;
+    color: black;
+    display: flex;
+    justify-content: center;
+    border: 3px solid black;
+    transition: background-color 0.3s, color 0.3s, width 0.3s;
+}
+
+.matename {
+    writing-mode: vertical-rl;
+    font-size: 2vh;
+    letter-spacing: 0.3rem;
+    font-family: "Titillium Web", sans-serif;
+    font-weight: bold;
+}
+
+.menu1:hover {
+    background-color: #F2A2B8;
+    color: white;
+}
+
+.menu2:hover {
+    background-color: #1722ff;
+    color: white;
+}
+
+.menu3:hover {
+    background-color: #00aa1a;
+    color: white;
+}
+
+.menu4:hover {
+    background-color: #FF7E7E;
+    color: white;
+}
+
+.menu5:hover {
+    background-color: #DF0101;
+    color: white;
+}
+
+
+/* 1번째 페이지 */
+.main_title {
+    font-family: 'EF_jejudoldam';
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+
+.main_title p {
+    font-size: 3.5vh;
+}
+
+.title_img {
+    width: 10%;
+    height: auto;
+    padding: 15px;
+}
+
+a {
+    text-decoration-line: none;
+    color: #6357cc;
+}
+
+.main_cont {
+    font-family: 'UhBeeSe_hyun';
+    padding: 30px;
+}
+
+.main_cont p {
+    font-size: 2vh;
+}
+
+.schedule {
+    background-image: url("https://cdn.discordapp.com/attachments/1254426162470584321/1262371754706468884/pngwing.com_6.png?ex=66965ad0&is=66950950&hm=46656ea4741d005a2ca3f59182c31d2d24c07426dd941798f96e5077531490f4&");
+    background-position: center;
+    background-size: cover;
+    padding: 30px;
+    display: inline-block;
+}
+
+.rule {
+    padding: 10px 55px 10px 55px;
+    border-radius: 10px;
+    display: inline-block;
+    font-size: 2vh;
+    margin-top: 10px;
+    border: 6px solid #f1b3b2;
+    outline: 4px solid #f1b3b2;
+    outline-offset: -12px;
+}
+
+.rule_cont {
+    padding: 10px 35px 10px 35px;
+    font-size: 1.5vh;
+    margin-top: 10px;
+}
+
+
+/* 2번째 페이지 */
+.title_img2 {
+    width: 8%;
+    height: auto;
+    padding: 20px;
+}
+
+.team_people {
+    font-family: 'UhBeeSe_hyun';
+    font-size: large;
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+}
+
+.box {
+    width: 12vw;
+    height: 20vh;
+    border: 4px solid #000000;
+    border-radius: 10px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.box img {
+    width: 95%;
+    max-height: 70%;
+    border-radius: 10px;
+    margin-top: 5px;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.diary2 h1 {
+    margin: 15vh auto auto auto;
+    font-family: 'UhBeeSe_hyun';
+    font-size: 3vh;
+}
