@@ -1,20 +1,21 @@
-#form-commentInfo{
+#form-commentInfo {
     width: 100%;
 }
 
-#comment-count{
-    margin-bottom: 20px; 
+#comment-count {
+    margin-bottom: 20px;
 }
 
-#comment-input{
+#comment-input {
     width: 50%;
     height: 3.3em;
 }
 
-#submit{
-    background-color: rgb(0, 128,255);
+#submit {
+    background-color: rgb(0, 128, 255);
     width: 5.5em;
-    height: 3.3em;;
+    height: 3.3em;
+    ;
     font-size: 15px;
     font-weight: bold;
     color: aliceblue;
@@ -22,19 +23,19 @@
 
 
 
-#comments{
+#comments {
     margin-top: 30px;
 }
 
-.eachComment{   
-    width :95%; 
-    margin: 30px;  
-    padding: 0.5em; 
+.eachComment {
+    width: 95%;
+    margin: 30px;
+    padding: 0.5em;
     border-bottom: 1px solid #c1bcba;
-    
+
 }
 
-.eachComment .name{
+.eachComment .name {
     font-size: 0.8em;
     font-weight: bold;
     margin-bottom: 0.3em;
@@ -42,40 +43,48 @@
     justify-content: space-between;
 }
 
-.eachComment .inputValue{
+.eachComment .inputValue {
     font-size: 1em;
     font-style: italic;
-    display: flex;    
+    display: flex;
 }
 
-.eachComment .time{
+.eachComment .time {
     font-size: 0.7em;
     color: #c1bcba;
     font-style: oblique;
     margin-top: 0.5em;
     margin-bottom: 0.5em;
     display: flex;
-    
+
 }
 
 
-.eachComment .deleteComment{
+.eachComment .deleteComment {
     background-color: red;
     color: aliceblue;
 }
 
 #close {
     animation: close 0.5s ease forwards;
-  }
-  
-  @keyframes close {
+}
+
+@keyframes close {
     from {
-      transform: scaleX(3);
-      visibility: visible;
-      transition-timing-function: ease-out;
+        transform: scaleX(3);
+        visibility: visible;
+        transition-timing-function: ease-out;
     }
-  
+
     to {
-      transform: scaleX(1);
+        transform: scaleX(1);
     }
-  }
+}
+
+html,
+body {
+    height: 100%;
+    background-image: url("https://s3.ap-northeast-2.amazonaws.com/materials.spartacodingclub.kr/bucketList/bg-grid.png");
+    background-position: center;
+    background-size: cover;
+}
