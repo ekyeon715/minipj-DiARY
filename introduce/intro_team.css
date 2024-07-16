@@ -134,6 +134,10 @@ body {
     color: white;
 }
 
+.menu6:hover {
+    background-color: black;
+    color: white;
+}
 
 /* 1번째 페이지 */
 .main_title {
