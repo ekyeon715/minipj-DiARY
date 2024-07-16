@@ -9,6 +9,8 @@
 #comment-input {
     width: 50%;
     height: 3.3em;
+    border-radius: 10px;
+    border: 1px solid #979797;
 }
 
 #submit {
@@ -19,6 +21,8 @@
     font-size: 15px;
     font-weight: bold;
     color: aliceblue;
+    border-radius: 10px;
+    border: 1px solid white;
 }
 
 
