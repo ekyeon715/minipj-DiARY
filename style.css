@@ -55,8 +55,8 @@ body {
 
 .matename {
     writing-mode: vertical-rl;
-    font-size: 2.2rem;
-    letter-spacing: 0.3rem;
+    font-size: 1.8vh;
+    letter-spacing: 0.1vh;
     font-family: "Titillium Web", sans-serif;
     font-weight: bold;
 }
@@ -95,7 +95,7 @@ body {
     font-family: "Titillium Web", sans-serif;
     font-weight: 200;
     font-style: normal;
-    font-size: 12rem;
+    font-size: 12vh;
     padding-top: 300px;
 }
 
