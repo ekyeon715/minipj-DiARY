@@ -52,7 +52,6 @@
         }
 
         .profileimg {
-            background-image: url(./images/suhee1.jpg);
             background-size: cover;
             background-position: center;
             width: 50%;
@@ -179,6 +178,18 @@
                 document.getElementById("likeCount").innerText = postSnap.data().likeCount || 0; // 좋아요 수 표시 코드
             }
         });
+
+        // 이미지 슬라이드 기능 추가
+        document.addEventListener("DOMContentLoaded", () => {
+            const images = ['./images/suhee1.jpg', './images/suhee2.png', './images/suhee3.png'];
+            let currentIndex = 0;
+            const profileImage = document.querySelector('.profileimg');
+
+            setInterval(() => {
+                currentIndex = (currentIndex + 1) % images.length;
+                profileImage.src = images[currentIndex];
+            }, 2000);
+        });
     </script>
 </head>
 
@@ -188,7 +199,7 @@
             <img class="profileimg" src="./images/suhee1.jpg">
             <div class="profiletext">
                 <p><span>이름</span> : 정수희</p>
-                <p><span>나이</span> : 24</p>
+                <p><span>나이</span> : 26</p>
                 <p><span>MBTI</span> : ISFP</p>
                 <div style="position: relative;">
                     <img src="./images/suhee4.png" style="width: 70%; transform: rotate(5deg);">
@@ -196,7 +207,7 @@
                         우리집 고양이 다롱이♥</p>
                 </div>
             </div>
-            <a href="https://velog.io/@darong_/posts" target="_blank"
+            <a href="https://velog.io/@darong_/posts"
                 style="text-decoration: none; color: #ff5252; margin-left: 15%; font-size: 1.5vh; font-weight: bold;">
                 https://velog.io/@darong_/posts</A>
             <div class="profile-qa" style="position: relative; margin-top: 5vh;">
@@ -205,7 +216,7 @@
                 <div style="position: relative; z-index: 1;">
                     <p><span>취미</span> : 게임하기, E스포츠 경기 보기</p>
                     <p><span>협업 스타일</span> : 소통을 자주 하고 다른 사람의 의견에 집중하는 편!</p>
-                    <p><span>나만의 스타일</span> : 노동요 틀어놓고 리듬 타면서 일하면 능률이 올라감</p>
+                    <p><span>나만의 스타일</span> : 노동요 틀어놓고 리듬타면서 일하면 능률이 올라감</p>
                     <p style="line-height: 1.4;"><span>나의 장단점</span> : 하나를 시작하면 마음에 들 때까지 깎고 또 깎고!
                         <br>다만.. 집중력이 좋지 않아서 하나를 마무리 하기까지 시간이 오래 걸림
                     </p>
@@ -230,10 +241,10 @@
                 style="line-height: 1.6; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
                 <p><span>가장 행복했던 순간</span><br>행복했던 순간 행복했던 순간 행복했던 순간 행복했던 순간</p>
                 <p><span>인생의 목표</span><br>목표목표 목표목표 목표목표 목표목표 목표목표 목표목표</p>
-                <p><span>개별질문</span><br>질문질문 질문질문 질문질문 질문질문 질문질문</p>
-                <p><span>개별질문</span><br>질문질문 질문질문 질문질문 질문질문 질문질문</p>
-                <p><span>개별질문</span><br>질문질문 질문질문 질문질문 질문질문 질문질문</p>
-                <p><span>개별질문</span><br>질문질문 질문질문 질문질문 질문질문 질문질문</p>
+                <p><span>Q. 고양이가 너무 귀엽습니다. 품종이 뭔가요?.</span><br>A.</p>
+                <p><span>Q. 질문을 적어주십쇼.</span><br>A. 답변을 적어주십쇼.</p>
+                <p><span>Q. 질문을 적어주십쇼.</span><br>A. 답변을 적어주십쇼.</p>
+                <p><span>Q. 질문을 적어주십쇼.</span><br>A. 답변을 적어주십쇼.</p>
             </div>
         </div>
         <div class="menu-container">

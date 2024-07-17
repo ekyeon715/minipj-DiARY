@@ -53,6 +53,26 @@
     });
 
 
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+      const modal = document.querySelector('.modal');
+      const modalOpen = document.querySelector('.modal_btn');
+      const modalClose = document.querySelector('.close_btn');
+
+      //열기 버튼을 눌렀을 때 모달팝업이 열림
+      modalOpen.addEventListener('click', function () {
+        //'on' class 추가
+        modal.classList.add('on');
+      });
+      //닫기 버튼을 눌렀을 때 모달팝업이 닫힘
+      modalClose.addEventListener('click', function () {
+        //'on' class 제거
+        modal.classList.remove('on');
+      });
+    });
+
+
+
   </script>
   <style>
     @font-face {
@@ -124,6 +144,55 @@
       margin: 30px 0 0 82%;
       padding-top: 20px;
     }
+
+
+    /*모달 관련*/
+    .modal_btn {
+      display: block;
+      border: none;
+      cursor: pointer;
+      transition: box-shadow 0.2s;
+    }
+
+    .modal.on {
+      display: block;
+    }
+
+
+    .modal {
+      /*팝업 배경*/
+      display: none;
+      /*평소에는 보이지 않도록*/
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal .modal_popup {
+      /*팝업*/
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px;
+      background: #ffffff;
+      border-radius: 20px;
+    }
+
+    .modal .modal_popup .close_btn {
+      display: block;
+      padding: 10px 20px;
+      background-color: rgb(255, 0, 0);
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      cursor: pointer;
+      transition: box-shadow 0.2s;
+    }
   </style>
 
 </head>
@@ -134,12 +203,10 @@
       <section class="title"><span>DiARY</span></section>
       <img
         src="https://cdn.discordapp.com/attachments/1254426162470584321/1262753310566383626/10.png?ex=6697be2a&is=66966caa&hm=9e29dfa76edbb982e55b711dff651a01acf84be5ab90737c371cf0e033c3e6ec&" />
-      <a href="./introduce/intro_team.html" style="text-decoration: none; color: inherit;">
-        <p>펼치기</p>
-      </a>
+      <p><a href="./introduce/intro_team.html" style="text-decoration: none; color: inherit;">펼치기</a></p>
       <!-- <section class="weather"></span></section> -->
       <div class="weather">
-        <span style="position: relative; margin-right: 10%;">오늘의 날씨 : 
+        <span class="modal_btn" style="position: relative; margin-right: 10%;">오늘의 날씨 :
           <img class="icon" style="position: absolute; transform: translateY(-25%);">
         </span>
       </div>
@@ -168,6 +235,20 @@
       </div>
     </div>
   </div>
+
+  <!--모달 팝업-->
+  <div class="modal">
+    <div class="modal_popup">
+      <h3> OpenWeathermap API 와 Geolocation API를 활용한 현재 날씨 기능</h3>
+      <p>다이어리 메인화면에서 OpenWeathermap API(날씨 관련 API) 활용하여, 
+        메인화면 접속 시 접속 유저의 Geolocation API(위치 정보 위도, 경도) 정보를 가져와
+        해당 지역의 기상 상황을 아이콘으로 표시 (비오면 비온다, 눈오면 눈온다, 해떠있다) 
+        이 아이콘은 OpenWeathermap api 측에서 제공, api 키를 발급 받아 현재 무료 플랜으로 
+        분당 60번 call 및 월에 백만건 call 가능</p>
+      <button type="button" class="close_btn">닫기</button>
+    </div>
+  </div>
+
 </body>
 
 </html>
