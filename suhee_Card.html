@@ -7,6 +7,17 @@
     <title>This is Suhee Card</title>
     <link rel="stylesheet" href="style.css" />
     <style>
+        * {
+            font-family: 'IM_Hyemin-Bold';
+        }
+
+        @font-face {
+            font-family: 'IM_Hyemin-Bold';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/IM_Hyemin-Regular.woff2') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         .diary1 {
             height: 90%;
             width: 1000px;
@@ -31,41 +42,83 @@
             background-color: #FF7E7E;
             color: white;
         }
+
+        .profileimg {
+            background-image: url(./images/suhee1.jpg);
+            background-size: cover;
+            background-position: center;
+            width: 50%;
+            height: 40%;
+            border-radius: 10px;
+            margin: 30px;
+            display: inline-block;
+        }
+
+        .profiletext {
+            display: inline-block;
+            width: 40%;
+            vertical-align: top;
+            margin-top: 20px;
+            font-size: 2.5vh;
+            text-align: center;
+        }
+
+        .profiletext span {
+            font-weight: bold;
+        }
+
+        .decotext {
+            font-size: 1.6vh;
+            font-weight: bold;
+            color: #000000;
+        }
     </style>
 </head>
 
-    <body class="scroll"  id="open">
-        <div class="main">
-            <div class="diary1">
-                <img class="diary1_img" src="./images/suhee1.jpg" style="width: 50%; border-radius: 10px;">
-            </div>
-            <div class="diary2">
-            </div>
-            <div class="menu-container">
-                <div class="menu"><span class="matename">
-                        <a href="./introduce/intro_team.html" style="text-decoration: none; color: inherit;">TEAM</a></span>
-                </div>
-                <div class="menu1"><span class="matename">
-                        <a href="./dayeon_Card.html" style="text-decoration: none; color: inherit;">DAYEON</a></span>
-                </div>
-                <div class="menu2"><span class="matename">
-                        <a href="./sujin_Card.html" style="text-decoration: none; color: inherit;">SUJIN</a></span>
-                </div>
-                <div class="menu3"><span class="matename">
-                        <a href="./hyunji/hyunji_Card.html" style="text-decoration: none; color: inherit;">HYUNJI</a></span>
-                </div>
-                <div class="menu4" id="suhee"><span class="matename">
-                        <a href="./suhee_Card.html" style="text-decoration: none; color: inherit;">SUHEE</a></span>
-                </div>
-                <div class="menu5"><span class="matename">
-                        <a href="./seungwoo_Card.html"
-                            style="text-decoration: none; color: inherit;">SEUNGWOO</a></span>
-                </div>
-                <div class="menu"><span class="matename">
-                        <a href="./comment.html" style="text-decoration: none; color: inherit;">GUEST</a></span>
+<body class="scroll" id="open">
+    <div class="main">
+        <div class="diary1">
+            <div class="profileimg"></div>
+            <div class="profiletext">
+                <p><span>이름</span> : 정수희</p>
+                <p><span>나이</span> : 26</p>
+                <p><span>MBTI</span> : ISFP</p>
+                <div style="position: relative;">
+                    <img src="./images/suhee4.png" style="width: 70%; transform: rotate(5deg);">
+                    <p class="decotext" style="position: absolute; bottom: 0px; right: 30px; transform: rotate(-5deg);">
+                        우리집 고양이 다롱이♥</p>
                 </div>
             </div>
-    </body>
+                <a href="https://velog.io/@darong_/posts"
+                    style="text-decoration: none; color: #FF7E7E; margin-left: 20%;">
+                    https://velog.io/@darong_/posts</A>
+        </div>
+        <div class="diary2">
+        </div>
+        <div class="menu-container">
+            <div class="menu"><span class="matename">
+                    <a href="./introduce/intro_team.html" style="text-decoration: none; color: inherit;">TEAM</a></span>
+            </div>
+            <div class="menu1"><span class="matename">
+                    <a href="./dayeon_Card.html" style="text-decoration: none; color: inherit;">DAYEON</a></span>
+            </div>
+            <div class="menu2"><span class="matename">
+                    <a href="./sujin_Card.html" style="text-decoration: none; color: inherit;">SUJIN</a></span>
+            </div>
+            <div class="menu3"><span class="matename">
+                    <a href="./hyunji/hyunji_Card.html" style="text-decoration: none; color: inherit;">HYUNJI</a></span>
+            </div>
+            <div class="menu4" id="suhee"><span class="matename">
+                    <a href="./suhee_Card.html" style="text-decoration: none; color: inherit;">SUHEE</a></span>
+            </div>
+            <div class="menu5"><span class="matename">
+                    <a href="./seungwoo_Card.html" style="text-decoration: none; color: inherit;">SEUNGWOO</a></span>
+            </div>
+            <div class="menu"><span class="matename">
+                    <a href="./comment.html" style="text-decoration: none; color: inherit;">GUEST</a></span>
+            </div>
+        </div>
+</body>
 
 </html>
 </body>
