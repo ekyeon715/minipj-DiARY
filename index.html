@@ -6,6 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our DiARY</title>
     <link rel="stylesheet" href="style.css" />
+    <script>
+    // Location Api && Weather Api
+    // 자바스크립트 즉시 실행 함수를 사용 - 무분별한 변수 사용 ,scope 오염 방지 
+    // 함수 블록 내에서 코드를 작성할 때 유용
+    // 제이쿼리 대신 사용 - 제이쿼리 fetch 활용 가능 - 앨범 강의 참고 
+    // Weather api https://home.openweathermap.org/api_keys 접속 후 회원가입 필요(API 사용을 위한 API키 발급받기 위해)
+    // 무료 이용 기준 - 분당 60건 한달 - 1,000,000건.
+    (function getLocation() {
+      const status = document.getElementById("status");
+      if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            const { latitude, longitude, accuracy } = position.coords;
+
+            const API_KEY = '572b476be1a55f071da59e7122385c95';
+            fetch(
+                    `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric&lang=kr`
+                ).then((response) => {
+                    console.log(response.json());
+                })
+          },
+          (error) => {
+            console.log( `위치 정보를 가져올 수 없습니다: ${error.message}`);
+          },
+          {
+            enableHighAccuracy: true, // 정확도 우선 모드
+            timeout: 10000,           // 10초 이내에 응답 없으면 에러 발생
+            maximumAge: 0             // 항상 최신 위치 정보 수집
+          }
+        );
+      } else {
+        console.log("브라우저가 위치 서비스를 지원하지 않습니다.");
+      }
+    })();
+
+
+    </script>
 </head>
 
 <body>
