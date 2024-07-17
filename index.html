@@ -2,46 +2,112 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our DiARY</title>
-    <link rel="stylesheet" href="style.css" />
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Our DiARY</title>
+        <link rel="stylesheet" href="style.css" />
+        <style>
+                @font-face {
+                        font-family: 'EF_YOONY';
+                        src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/EF_YOONY.woff2') format('woff2');
+                        font-weight: normal;
+                        font-style: normal;
+                }
+
+                @font-face {
+                        font-family: 'UhBeeSe_hyun';
+                        src: url('https://gcore.jsdelivr.net/gh/projectnoonnu/noonfonts_five@.2.0/UhBeeSe_hyun.woff') format('woff');
+                        font-weight: normal;
+                        font-style: normal;
+                }
+
+                @font-face {
+                        font-family: 'LeeSeoyun';
+                        src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/LeeSeoyun.woff') format('woff');
+                        font-weight: normal;
+                        font-style: normal;
+                }
+
+                body {
+                        background-image: url("https://cdn.discordapp.com/attachments/1254426162470584321/1262750543730704485/-001_10.png?ex=6697bb96&is=66966a16&hm=1d48977f629410af1461132ff890de769bb6e050fb8ed01e27d1364661d39f21&");
+                        background-position: center;
+                        background-size: cover;
+                }
+
+                .diary {
+                        background-color: #FFBAAB;
+                        outline: 6px solid white;
+                        outline-offset: -15px;
+
+                }
+
+                .title {
+                        font-family: 'UhBeeSe_hyun';
+                        font-size: 5vh;
+                        color: #ffffff;
+                        padding-top: 300px;
+                }
+
+                .diary img {
+                        width: 40%;
+                        height: auto;
+                }
+
+                .diary p {
+                        width: 18%;
+                        height: 100px;
+                        background: rgb(255, 255, 255);
+                        border-radius: 100% 0 0 100%;
+                        font-size: 2vh;
+                        font-family: 'EF_YOONY', 'cursive';
+                        margin: 30px 0 0 82%;
+                        padding-top: 20px;
+                }
+        </style>
 </head>
 
 <body>
-    <div class="main">
-        <div class="diary">
-            <section class="title"><span>DiARY</span></section>
-            <nav></nav>
-            <A href="./introduce/intro_team.html" style="text-decoration: none; color: inherit;" >
-                <p style="font-size: 2vh; margin: 0; font-family: Nanum Pen Script, cursive; margin: 20px 0 0 350px;">
-                    펼치기</p>
-            </A>
+        <div class="main">
+                <div class="diary">
+                        <section class="title"><span>DiARY</span></section>
+                        <img
+                                src="https://cdn.discordapp.com/attachments/1254426162470584321/1262753310566383626/10.png?ex=6697be2a&is=66966caa&hm=9e29dfa76edbb982e55b711dff651a01acf84be5ab90737c371cf0e033c3e6ec&" />
+                        <a href="./introduce/intro_team.html" style="text-decoration: none; color: inherit;">
+                                <p style="">
+                                        펼치기</p>
+                        </a>
+                </div>
+                <div class="menu-container">
+                        <div class="menu"><span class="matename">
+                                        <a href="./introduce/intro_team.html"
+                                                style="text-decoration: none; color: inherit;">TEAM</a></span>
+                        </div>
+                        <div class="menu1"><span class="matename">
+                                        <a href="./dayeon_Card.html"
+                                                style="text-decoration: none; color: inherit;">DAYEON</a></span>
+                        </div>
+                        <div class="menu2"><span class="matename">
+                                        <a href="./sujin_Card.html"
+                                                style="text-decoration: none; color: inherit;">SUJIN</a></span>
+                        </div>
+                        <div class="menu3"><span class="matename">
+                                        <a href="./hyunji/hyunji_Card.html"
+                                                style="text-decoration: none; color: inherit;">HYUNJI</a></span>
+                        </div>
+                        <div class="menu4"><span class="matename">
+                                        <a href="./suhee_Card.html"
+                                                style="text-decoration: none; color: inherit;">SUHEE</a></span>
+                        </div>
+                        <div class="menu5"><span class="matename">
+                                        <a href="./seungwoo_Card.html"
+                                                style="text-decoration: none; color: inherit;">SEUNGWOO</a></span>
+                        </div>
+                        <div class="menu"><span class="matename">
+                                        <a href="./comment.html"
+                                                style="text-decoration: none; color: inherit;">GUEST</a></span>
+                        </div>
+                </div>
         </div>
-        <div class="menu-container">
-            <div class="menu"><span class="matename">
-                 <a href="./introduce/intro_team.html" style="text-decoration: none; color: inherit;">TEAM</a></span>
-            </div>
-            <div class="menu1"><span class="matename">
-                    <a href="./dayeon_Card.html" style="text-decoration: none; color: inherit;">DAYEON</a></span>
-            </div>
-            <div class="menu2"><span class="matename">
-                    <a href="./sujin_Card.html" style="text-decoration: none; color: inherit;">SUJIN</a></span>
-            </div>
-            <div class="menu3"><span class="matename">
-                    <a href="./hyunji/hyunji_Card.html" style="text-decoration: none; color: inherit;">HYUNJI</a></span>
-            </div>
-            <div class="menu4"><span class="matename">
-                    <a href="./suhee_Card.html" style="text-decoration: none; color: inherit;">SUHEE</a></span>
-            </div>
-            <div class="menu5"><span class="matename">
-                    <a href="./seungwoo_Card.html" style="text-decoration: none; color: inherit;">SEUNGWOO</a></span>
-            </div>
-            <div class="menu"><span class="matename">
-                    <a href="./comment.html" style="text-decoration: none; color: inherit;">GUEST</a></span>
-            </div>
-        </div>
-    </div>
 </body>
 
 </html>
