@@ -7,10 +7,6 @@
     <title>This is Suhee Card</title>
     <link rel="stylesheet" href="style.css" />
     <style>
-        * {
-            font-family: 'IM_Hyemin-Bold';
-        }
-
         @font-face {
             font-family: 'IM_Hyemin-Bold';
             src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/IM_Hyemin-Regular.woff2') format('woff');
@@ -27,6 +23,7 @@
             background-image: url(https://mblogthumb-phinf.pstatic.net/MjAyMDEyMTNfMTkw/MDAxNjA3ODI4MDk4NzY3.ETzrqCWnQzSSRcgKBk2dhB_tZMdDJtDT6zkAflFINPwg.inmIAUH-3mVN1IKBwbUZryEhba4R9uko0cY2gAnrUMwg.PNG.lily__s/%EB%A9%94%EB%AA%A8.png?type=w800);
             background-size: cover;
             text-align: left;
+            font-family: 'IM_Hyemin-Bold';
         }
 
         .diary2 {
@@ -36,6 +33,7 @@
             border-left: 3px solid #ffcaca;
             background-image: url(https://mblogthumb-phinf.pstatic.net/MjAyMDEyMTNfMTkw/MDAxNjA3ODI4MDk4NzY3.ETzrqCWnQzSSRcgKBk2dhB_tZMdDJtDT6zkAflFINPwg.inmIAUH-3mVN1IKBwbUZryEhba4R9uko0cY2gAnrUMwg.PNG.lily__s/%EB%A9%94%EB%AA%A8.png?type=w800);
             background-size: cover;
+            font-family: 'IM_Hyemin-Bold';
         }
 
         #suhee {
@@ -48,9 +46,9 @@
             background-size: cover;
             background-position: center;
             width: 50%;
-            height: 40%;
+            height: auto;
             border-radius: 10px;
-            margin: 30px;
+            margin: 2vh 2vh 1vh 2vh;
             display: inline-block;
         }
 
@@ -58,13 +56,20 @@
             display: inline-block;
             width: 40%;
             vertical-align: top;
-            margin-top: 20px;
+            margin-top: 2vh;
             font-size: 2.5vh;
             text-align: center;
         }
 
-        .profiletext span {
+        .profile-qa {
+            font-size: 2vh;
+            margin: 5vh;
+        }
+
+        .profiletext span,
+        .profile-qa span {
             font-weight: bold;
+            font-size: 2.5vh;
         }
 
         .decotext {
@@ -72,13 +77,14 @@
             font-weight: bold;
             color: #000000;
         }
+
     </style>
 </head>
 
 <body class="scroll" id="open">
     <div class="main">
         <div class="diary1">
-            <div class="profileimg"></div>
+            <img class="profileimg" src="./images/suhee1.jpg">
             <div class="profiletext">
                 <p><span>이름</span> : 정수희</p>
                 <p><span>나이</span> : 26</p>
@@ -90,8 +96,16 @@
                 </div>
             </div>
                 <a href="https://velog.io/@darong_/posts"
-                    style="text-decoration: none; color: #FF7E7E; margin-left: 20%;">
+                    style="text-decoration: none; color: #FF7E7E; margin-left: 15%; font-size: 1.5vh;">
                     https://velog.io/@darong_/posts</A>
+             <div class="profile-qa">
+                <p><span>취미</span> : 게임하기, E스포츠 경기 보기</p>
+                <p><span>협업 스타일</span> : 소통을 자주 하고 다른 사람의 의견에 집중하는 편!</p>
+                <p><span>나만의 스타일</span> : 노동요 틀어놓고 리듬타면서 일하면 능률이 올라감</p>
+                <p><span>나의 장단점</span> : 하나를 시작하면 마음에 들 때까지 깎고 또 깎고!<BR> 다만.. 집중력이 좋지 않아서 하나를 마무리 하기까지 시간이 오래 걸림</p>
+                <p><span>요즘 즐겨듣는 노래</span></p>
+                <p><span>한마디</span></p>
+             </div>
         </div>
         <div class="diary2">
         </div>
