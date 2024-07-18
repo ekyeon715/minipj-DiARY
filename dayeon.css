@@ -81,6 +81,10 @@ body {
     font-size: 2vh;
 }
 
+.title_qa {
+    color: #f85a84;
+}
+
 .diary1_text2 {
     text-align: left;
     padding: 15px;
@@ -98,16 +102,22 @@ body {
 
 .diary2 {
     font-family: 'Dovemayo_gothic';
-    font-size: 3vh;
-    font-weight: bold;
+    font-size: 4vh;
+    font-weight: 200;
 }
 
 .diary2_qa {
     text-align: center;
-    padding: 15px;
+    padding: 10px;
     font-family: 'Dovemayo_gothic';
     font-size: 2.5vh;
     font-weight: 100;
+}
+
+.diary2_qa span {
+    padding: 15px;
+    font-family: 'Dovemayo-Medium';
+    font-size: 2.1vh;
 }
 
 
