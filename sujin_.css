@@ -99,8 +99,10 @@ body {
 
 .diary1 .joystick{
 
-    width: 20%;
+    width: 40%;
     height: auto;
+    margin: 0; 
+    padding: 0;
 
 }
 
@@ -186,7 +188,7 @@ body {
 
 .diary2 p {
     font-family: "Hahmlet", serif;
-        font-size: 3vh;
+        font-size: 2.3vh;
 }
 
 .diary2_qa {
@@ -197,7 +199,7 @@ body {
 
 .diary2_q {
     color: #0b0156;
-    font-size: 2.5vh !important;
+    font-size: 2.3vh !important;
 }
 
 .diary2_qa span {
