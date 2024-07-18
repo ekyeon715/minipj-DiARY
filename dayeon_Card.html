@@ -39,6 +39,85 @@
             background-position: center;
         }
     </style>
+
+    <script type="module">
+        // Firebase SDK 라이브러리 가져오기
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+        import { getFirestore, doc, setDoc, updateDoc, increment, getDoc, collection, deleteDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+
+        // Firebase 구성 정보 설정
+        const firebaseConfig = {
+            apiKey: "AIzaSyCABiHiGzxGELpkUPOgFO_sgwI2SqUblLw",
+            authDomain: "diary-be831.firebaseapp.com",
+            projectId: "diary-be831",
+            storageBucket: "diary-be831.appspot.com",
+            messagingSenderId: "1030858653688",
+            appId: "1:1030858653688:web:e25e3a5d7965126b84600d"
+        };
+
+        // Firebase 인스턴스 초기화
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const likeButton = document.getElementById("likeButton");
+
+        async function toggleHeart() {
+            const userId = crypto.randomUUID(); // 로그인 없이 유니크한 사용자 ID 생성
+            const postId = "dayeon"; // 예제 포스트 ID
+            const postRef = doc(db, "profile", postId); // 경로 수정
+            const userLikeRef = doc(collection(postRef, "likedUsers"), userId);
+
+            const docSnap = await getDoc(userLikeRef);
+            let likeCount = 0;
+
+            if (docSnap.exists()) {
+                await deleteDoc(userLikeRef);
+                await updateDoc(postRef, { likeCount: increment(-1) });
+                document.getElementById("toggleImg").classList.remove("filled");
+            } else {
+                await setDoc(userLikeRef, {});
+                await updateDoc(postRef, { likeCount: increment(1) });
+                document.getElementById("toggleImg").classList.add("filled");
+            }
+
+            const postSnap = await getDoc(postRef);
+            if (postSnap.exists()) {
+                likeCount = postSnap.data().likeCount;
+            }
+
+            document.getElementById("likeCount").innerText = likeCount;
+        }
+
+        likeButton.addEventListener("click", toggleHeart); // 클릭 이벤트 리스너 추가
+
+        document.addEventListener("DOMContentLoaded", async () => { // DOMContentLoaded 이벤트 리스너 추가
+            const postId = "dayeon"; // 예제 포스트 ID
+            const postRef = doc(db, "profile", postId); // 경로 수정
+            const postSnap = await getDoc(postRef);
+
+            if (postSnap.exists()) {
+                document.getElementById("likeCount").innerText = postSnap.data().likeCount || 0; // 좋아요 수 표시 코드
+            }
+        });
+
+
+        // 이미지 슬라이드 기능 추가
+        document.addEventListener("DOMContentLoaded", () => {
+            const images = ['./images/dayeon3.jpg', './images/dayeon2.jpg', './images/dayeon5.jpg', './images/dayeon1.jpg', './images/dayeon6.jpg'];
+            let currentIndex = 0;
+            const profileImage = document.querySelector('.prImg');
+
+            setInterval(() => {
+                profileImage.style.opacity = 0; // 페이드 아웃
+
+                setTimeout(() => {
+                    currentIndex = (currentIndex + 1) % images.length;
+                    profileImage.src = images[currentIndex];
+                    profileImage.style.opacity = 2; // 페이드 인
+                }, 1000); // 페이드 아웃 시간 (1초)과 일치시킴
+            }, 3000); // 2초마다 이미지 전환
+        });
+
+    </script>
 </head>
 
 <body class="scroll" id="open">
@@ -68,6 +147,15 @@
         </div>
 
         <div class="diary2">
+            <div>
+                <button id="likeButton" class="likebtn">
+                    <svg id="toggleImg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="fa-heart">
+                        <path
+                            d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z" />
+                    </svg>
+                    <span id="likeCount">0</span>
+                </button>
+            </div>
             <div class="title_qa">
                 <P>Q&A</P>
             </div>
@@ -80,12 +168,12 @@
                     A. <span>멜론 기준 플레이브 Way 4 Luv고 <br>유튜브뮤직 기준은 아마 에스파의 Supernova입니다.</span></p>
                 <p class="diary2_q">Q. <span>저도 뮤지컬 좋아하는데 어떤 뮤지컬 좋아하시나요?ㅎㅎ</span><br />
                     A. <span>지금까지 제가 제일 좋아하는건 프랑켄슈타인 입니다.</span></p>
-                <p class="diary2_q">Q. <span>어쩌구저쩌구</span><br />
-                    A. <span>어쩌구저쩌구</span></p>
-                <p class="diary2_q">Q. <span>어쩌구저쩌구</span><br />
-                    A. <span>어쩌구저쩌구</span></p>
-                <p class="diary2_q">Q. <span>어쩌구저쩌구</span><br />
-                    A. <span>어쩌구저쩌구</span></p>
+                <p class="diary2_q">Q. <span>가장 인상 깊었던 아이돌은 누구인가요?</span><br />
+                    A. <span>정택운 입니다. 제가 뮤지컬 입문하게 만든 장본인이죠.</span></p>
+                <p class="diary2_q">Q. <span>좋아했던 아이돌 중에 진짜 사랑했다. 하는 그룹이나 멤버가 있을까요?</span><br />
+                    A. <span>딱히 없는 것 같아요. 그냥 좋아하는 아이돌이 많은 사람입니다.</span></p>
+                <!-- <p class="diary2_q">Q. <span>어쩌구저쩌구</span><br />
+                    A. <span>어쩌구저쩌구</span></p> -->
             </div>
             <div class="diary1_img2">
                 <img style="z-index: 1;" src="" />
