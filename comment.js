@@ -69,9 +69,12 @@ async function loadComments() {
 
     let comment_html = `            
           <div class="eachComment" id="${id}">
-            <div class="name">${user}</div>
-              <span class="inputValue">${comment} <button class="deleteComment" data-id="${id}" data-comment="${comment}">삭제</button></span>
+          <div>  
+          <div class="name">${user}</div>
+              <span class="inputValue">${comment}</span>
               <div class="time">${time}</div>
+              </div>
+               <button class="deleteComment" data-id="${id}" data-comment="${comment}">삭제</button>
           </div>`;
     $("#comments").prepend(comment_html); // 최신 댓글이 위로 올라오도록 prepend 사용
   });
