@@ -13,6 +13,84 @@
             color: white;
         }
     </style>
+    <script type="module">
+
+        // Firebase SDK 라이브러리 가져오기
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+        import { getFirestore, doc, setDoc, updateDoc, increment, getDoc, collection, deleteDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+
+        // Firebase 구성 정보 설정
+        const firebaseConfig = {
+            apiKey: "AIzaSyCABiHiGzxGELpkUPOgFO_sgwI2SqUblLw",
+            authDomain: "diary-be831.firebaseapp.com",
+            projectId: "diary-be831",
+            storageBucket: "diary-be831.appspot.com",
+            messagingSenderId: "1030858653688",
+            appId: "1:1030858653688:web:e25e3a5d7965126b84600d"
+        };
+
+        // Firebase 인스턴스 초기화
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const likeButton = document.getElementById("likeButton");
+
+        async function toggleHeart() {
+            const userId = crypto.randomUUID(); // 로그인 없이 유니크한 사용자 ID 생성
+            const postId = "seungwoo"; // 예제 포스트 ID
+            const postRef = doc(db, "profile", postId); // 경로 수정
+            const userLikeRef = doc(collection(postRef, "likedUsers"), userId);
+
+            const docSnap = await getDoc(userLikeRef);
+            let likeCount = 0;
+
+            if (docSnap.exists()) {
+                await deleteDoc(userLikeRef);
+                await updateDoc(postRef, { likeCount: increment(-1) });
+                document.getElementById("toggleImg").classList.remove("filled");
+            } else {
+                await setDoc(userLikeRef, {});
+                await updateDoc(postRef, { likeCount: increment(1) });
+                document.getElementById("toggleImg").classList.add("filled");
+            }
+
+            const postSnap = await getDoc(postRef);
+            if (postSnap.exists()) {
+                likeCount = postSnap.data().likeCount;
+            }
+
+            document.getElementById("likeCount").innerText = likeCount;
+        }
+
+        likeButton.addEventListener("click", toggleHeart); // 클릭 이벤트 리스너 추가
+
+        document.addEventListener("DOMContentLoaded", async () => { // DOMContentLoaded 이벤트 리스너 추가
+            const postId = "seungwoo"; // 예제 포스트 ID
+            const postRef = doc(db, "profile", postId); // 경로 수정
+            const postSnap = await getDoc(postRef);
+
+            if (postSnap.exists()) {
+                document.getElementById("likeCount").innerText = postSnap.data().likeCount || 0; // 좋아요 수 표시 코드
+            }
+        });
+
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const modal = document.querySelector('.modal');
+            const modalOpen = document.querySelector('.modal_btn');
+            const modalClose = document.querySelector('.close_btn');
+
+            //열기 버튼을 눌렀을 때 모달팝업이 열림
+            modalOpen.addEventListener('click', function () {
+                //'on' class 추가
+                modal.classList.add('on');
+            });
+            //닫기 버튼을 눌렀을 때 모달팝업이 닫힘
+            modalClose.addEventListener('click', function () {
+                //'on' class 제거
+                modal.classList.remove('on');
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -44,30 +122,45 @@
                                 href="https://youtu.be/hrXCP0xeoA8?si=Rp8YNMalzsnp0KA4">원필-행운을
                                 빌어줘(클릭)</a></span></p>
                     <p>한 마디 : <span>잘 부탁드립니다.</span></p>
-                    <div class="diary1_img2">
-                        <img src="imges/66.png" />
-                    </div>
                 </div>
             </div>
+            <div class="diary1_img2">
+                <img src="imges/66.png" class="diary1_img2_1"/>
+            </div>
             <div class="diary2">
+                <div style="position: absolute; top: 5%; left: 5%;">
+                    <button id="likeButton" class="likebtn">
+                        <svg id="toggleImg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="fa-heart">
+                            <path
+                                d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z" />
+                        </svg>
+                        <span id="likeCount">0</span>
+                    </button>
+                </div>
                 <P>질의응답</P>
                 <div class="diary2_qa">
                     <p class="diary2_q">Q. <span>가장 행복했던 순간</span><br />
-                        A. <span>어쩌구저쩌구</span></p>
+                        A. <span>뭔가 특별하게 기억나는 순간들은 없는 것 같습니다. 하지만 소소하게 계속 행복했던 순간들이 있었던 것 같습니다. 가족이랑 놀러간다던가, 친구와 생일을 같이
+                            보낸다거나, 생일이 되자마자 친구들이 생일 축하한다고 보내준다던가,,,</span></p>
                     <p class="diary2_q">Q. <span>인생의 목표</span><br />
-                        A. <span>어쩌구저쩌구</span></p>
-                    <p class="diary2_q">Q. <span>어쩌구저쩌구</span><br />
-                        A. <span>어쩌구저쩌구</span></p>
-                    <p class="diary2_q">Q. <span>어쩌구저쩌구</span><br />
-                        A. <span>어쩌구저쩌구</span></p>
-                    <p class="diary2_q">Q. <span>어쩌구저쩌구</span><br />
-                        A. <span>어쩌구저쩌구</span></p>
-                    <p class="diary2_q">Q. <span>어쩌구저쩌구</span><br />
-                        A. <span>어쩌구저쩌구</span></p>
+                        A. <span>지금은 취업해서 30대에 소소하게 자취방을 얻고 주말에 평화롭게 강아지와 함께 일상을 보내는 것입니다. 나중에 또 달라질 수도 있겠지만,,,</span>
+                    </p>
+                    <p class="diary2_q">Q. <span>짤이 아이스아메리카노인데 어떤 음료 좋아하시는지 궁금합니다</span><br />
+                        A. <span>짤은 아이스 아메리카노지만 전 사실 아.아 못먹습니다... 민초 프라푸치노? 녹차 프라푸치노 잘 먹습니다 ㅎㅎ,,, 호불호 강한 음료조( ͡° ͜ʖ ͡°)
+                        </span></p>
+                    <p class="diary2_q">Q. <span>초록색을 좋아하게 된 이유나 초록색을 좋아해서 이런거까지 초록색으로 사봤다 하는거 있는지 궁금해요
+                        </span><br />
+                        A. <span>처음에는 눈이 편안한 색이라고 해서 좋아했었는데, 점점 시간이 지날수록 초록색에 대한 광기는 커져만 가고,,, 사실 초록색을 좋아하지만 물건은 초록색으로
+                            사본 기억이 거의 없는 것 같아요,,, 오히려 쿠리만쥬라는 캐릭터를 좋아해서 피규어부터 인형까지 다 샀던 기억이,,,</span></p>
+                    <p class="diary2_q">Q. <span>게임 중에서 어떤 장르의 게임을 좋아하시나요!? 세계관이라던가..컨셉이라던가..</span><br />
+                        A. <span>주로 fps, ros, 오픈월드를 주로 하는 것 같습니다. 장르는 타인과 소통하거나 협동하는 장르의 게임을 좋아하는 것 같아요! 로아나 검은 사막같은,,,
+                            동양풍 컨셉을 좋아합니다.</span></p>
+                    <p class="diary2_q">Q. <span>운동은 언제부터 하셨나요? 주로 어떤 운동을 하시는지 궁금해요!</span><br />
+                        A. <span>사실 전 헬린이랍니다,,, 저번에 인대를 다쳐버려서 경사 12로 놓고 빠르게 걷기밖에 못해요,,,</span></p>
                 </div>
-                <div class="diary1_img2">
-                    <img style="z-index: 1;" src="imges/99.png" />
-                </div>
+            </div>
+            <div class="diary1_img2">
+                <img class="diary1_img2_2" style="z-index: 1;" src="imges/99.png" />
             </div>
             <div class="menu-container">
                 <div class="menu"><span class="matename">
