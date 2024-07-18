@@ -84,6 +84,30 @@
     height: 30px;
 }
 
+.toggleLike {
+    background-color: transparent;
+    border: transparent;
+    padding: 0px;
+    margin: 0px;
+    fill: red;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    width: 15%;
+}
+
+.likeheart {
+    width: 20px;
+    fill: rgb(0, 128, 255);
+    display: block;
+}
+
+.likeCount {
+    display: block;
+}
+
 #close {
     animation: close 0.5s ease forwards;
 }
