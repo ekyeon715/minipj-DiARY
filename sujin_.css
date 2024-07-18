@@ -1,3 +1,4 @@
+
 @font-face {
     font-family: "SDGothic";
     src: url("THE_HongChawangjanemo.ttf") format("truetype");
@@ -23,7 +24,7 @@ body {
     height: 100%;
     background-position: center;
     background-size: cover;
-    background-color: rgb(48, 73, 212);
+    background-image: url('https://cdn.discordapp.com/attachments/927134294382612514/1263306044948484178/Pngtreestars_in_dark_blue_night_15572596.png?ex=6699c0f0&is=66986f70&hm=24f6502e1f659569c2fb56ec425c8d4d531bbc21275acdf21263f5a7df64e780&');
 }
 
 /* 드래그 색상 */
@@ -34,26 +35,26 @@ body {
 
 .diary1 {
     height: 90%;
-    width: 1000px;
+    width: 50%;
     border: 3px solid black;
     border-radius: 20px 0 0 20px;
-    border-right: 3px solid rgb(17, 0, 254) 0, 170);
-    background-image: url("https://cdn.discordapp.com/attachments/927134294382612514/1263080460167151686/15.jpg?ex=6698eed8&is=66979d58&hm=f5f0f01161cc05de2d8315910f7f8be1304bd1f6bc4d344899a843b897eaf5c8&");
+    border-right: 3px solid rgb(17, 0, 254);
+    background-color: #E6FFFF;
     background-size: cover;
 }
 
 .diary2 {
     height: 90%;
-    width: 1000px;
+    width: 50%;
     border: 3px solid black;
-    border-right: 3px solid rgb(17, 0, 254) 0, 170);
-    background-image: url("https://cdn.discordapp.com/attachments/927134294382612514/1263080460167151686/15.jpg?ex=6698eed8&is=66979d58&hm=f5f0f01161cc05de2d8315910f7f8be1304bd1f6bc4d344899a843b897eaf5c8&");
+    border-right: 3px solid rgb(17, 0, 254);
+    background-color: #E6FFFF;
     background-size: cover;
 }
 
-.menu3 {
+.menu2 {
     width: 50px;
-    background-color: #00aa1a;
+    background-color: rgb(0, 3, 170);
     height: 15%;
     border-radius: 0 10px 10px 0;
     margin: -1px auto;
@@ -67,6 +68,33 @@ body {
 /* 다이어리 왼쪽 */
 .diary1_img {
     display: flex;
+}
+
+.fa-heart {
+    width: 6vh;
+    height: 6vh;
+    cursor: pointer;
+    fill: #ff5252;
+}
+
+.likebtn {
+    border: 0;
+    background-color: transparent;
+    width: auto;
+    height: auto;
+    position: relative;
+    padding: 0;
+}
+
+#likeCount {
+    font-size: 1.5vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'IM_Hyemin-Bold';
+    font-weight: bold;
+    color: white;
 }
 
 .diary1 .joystick{
@@ -98,19 +126,27 @@ body {
 
 .diary1_text {
     text-align: left;
-    padding: 15px;
-    font-family: 'UhBeeSe_hyun';
-    font-size: 1.8vh;
+    padding: 5px;
+    font-size: 2.3vh;
 }
 
 .diary1_text p,
 .diary1_text2 p {
     color: #0b0156;
+    font-family: "Hahmlet", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+
 }
 
 .diary1_text span {
-    font-family: 'LeeSeoyun' !important;
-    font-size: 2.5vh;
+    
+        font-family: "Gothic A1", sans-serif;
+        font-weight: 200;
+        font-style: normal;
+      
+          
     color: #000000;
 }
 
@@ -129,15 +165,18 @@ body {
 }
 
 .diary1_text2 {
-    text-align: left;
+    text-align: center;
     margin-left: 8%;
-    font-family: 'UhBeeSe_hyun';
-    font-size: 1.8vh;
+    font-size: 2.3vh;
 }
 
 .diary1_text2 span {
-    font-family: 'LeeSeoyun' !important;
-    font-size: 2.5vh;
+        font-family: "Gothic A1", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 2.3vh;
+      
+          
     color: #000000;
     justify-content: center;a
 }
@@ -146,23 +185,23 @@ body {
 /* 다이어리 오른쪽 */
 
 .diary2 p {
-    font-family: 'UhBeeSe_hyun';
-    font-size: 3vh;
+    font-family: "Hahmlet", serif;
+        font-size: 3vh;
 }
 
 .diary2_qa {
     padding: 0 5% 0 5%;
-    font-family: 'LeeSeoyun';
+    font-family: "Gothic A1", sans-serif;
     text-align: left;
 }
 
 .diary2_q {
-    color: #00aa1a;
+    color: #0b0156;
     font-size: 2.5vh !important;
 }
 
 .diary2_qa span {
-    font-family: 'LeeSeoyun' !important;
+    font-family: "Gothic A1", sans-serif;
     color: #000000;
 }
 #open {
