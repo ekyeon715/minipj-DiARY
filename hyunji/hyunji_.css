@@ -21,7 +21,7 @@
 html,
 body {
     height: 100%;
-    background-image: url("https://cdn.discordapp.com/attachments/1254426162470584321/1262620893373530182/-001_6.png?ex=669742d7&is=6695f157&hm=1db4da07657fef1108e6415b312b9e0373dec87f45cc8b2218a1b07d3fbe0808&");
+    background-image: url("imges/background.png");
     background-position: center;
     background-size: cover;
 }
@@ -158,18 +158,19 @@ body {
     font-family: 'LeeSeoyun' !important;
     color: #000000;
 }
+
 #open {
     animation: open 0.5s ease forwards;
-  }
-  
-  @keyframes open {
+}
+
+@keyframes open {
     from {
-      transform: scaleX(0%);
-      visibility: visible;
-      transition-timing-function: ease-out;
+        transform: scaleX(0%);
+        visibility: visible;
+        transition-timing-function: ease-out;
     }
-  
+
     to {
-      transform: scaleX(100%);
+        transform: scaleX(100%);
     }
-  }
+}
