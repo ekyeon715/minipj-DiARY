@@ -59,6 +59,7 @@
             border-radius: 10px;
             margin: 2vh 2vh 1vh 2vh;
             display: inline-block;
+            transition: opacity 0.5s ease-in-out;
         }
 
         .profiletext {
@@ -234,10 +235,16 @@
             const profileImage = document.querySelector('.profileimg');
 
             setInterval(() => {
+            profileImage.style.opacity = 0; // 페이드 아웃
+
+            setTimeout(() => {
                 currentIndex = (currentIndex + 1) % images.length;
                 profileImage.src = images[currentIndex];
-            }, 2000);
+                profileImage.style.opacity = 2; // 페이드 인
+            }, 1000); // 페이드 아웃 시간 (1초)과 일치시킴
+        }, 3000); // 2초마다 이미지 전환
         });
+
 
         document.addEventListener('DOMContentLoaded', (event) => {
             const modal = document.querySelector('.modal');
