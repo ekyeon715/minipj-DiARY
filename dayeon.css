@@ -126,7 +126,7 @@ body {
     width: 6vh;
     height: 6vh;
     cursor: pointer;
-    fill: red;
+    fill: rgb(255, 106, 106);
 }
 
 .likebtn {
@@ -139,12 +139,75 @@ body {
 }
 
 #likeCount {
-    font-size: 2vh;
+    font-size: 1.1vh;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    font-family: 'Dovemayo-Medium';
+    color: #fff;
 }
+
+/* 페이드인아웃 */
+.prImg {
+    background-size: cover;
+    background-position: center;
+    width: 50%;
+    height: auto;
+    border-radius: 10px;
+    margin: 2vh 2vh 1vh 2vh;
+    display: inline-block;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/*모달 관련*/
+.modal_btn {
+    display: block;
+    border: none;
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+}
+
+.modal.on {
+    display: block;
+}
+
+
+.modal {
+    /*팝업 배경*/
+    display: none;
+    /*평소에는 보이지 않도록*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modal .modal_popup {
+    /*팝업*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 20px;
+}
+
+.modal .modal_popup .close_btn {
+    display: block;
+    padding: 10px 20px;
+    background-color: rgb(255, 0, 0);
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+}
+
 
 
 
