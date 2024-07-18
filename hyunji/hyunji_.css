@@ -40,7 +40,13 @@ body {
     border-right: 3px solid #00aa1a;
     background-color: #e4f2e7;
     background-size: cover;
+    overflow: scroll;
 }
+
+.diary1::-webkit-scrollbar {
+    display: none
+}
+
 
 .diary2 {
     height: 90%;
@@ -49,7 +55,13 @@ body {
     border-left: 3px solid #00aa1a;
     background-color: #e4f2e7;
     background-size: cover;
+    overflow: scroll;
 }
+
+.diary2::-webkit-scrollbar {
+    display: none
+}
+
 
 .menu3 {
     width: 50px;
