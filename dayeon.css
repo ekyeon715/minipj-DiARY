@@ -207,6 +207,9 @@ body {
     cursor: pointer;
     transition: box-shadow 0.2s;
 }
+.modal_btn {
+    color: #aaaaaa;
+}
 
 
 
