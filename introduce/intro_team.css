@@ -169,7 +169,7 @@ body {
 }
 
 .schedule {
-    background-image: url("https://cdn.discordapp.com/attachments/1254426162470584321/1262371754706468884/pngwing.com_6.png?ex=66965ad0&is=66950950&hm=46656ea4741d005a2ca3f59182c31d2d24c07426dd941798f96e5077531490f4&");
+    background-image: url("images/pngwing.com\ \(6\).png");
     background-position: center;
     background-size: cover;
     padding: 30px;
@@ -238,16 +238,16 @@ body {
 
 #open {
     animation: open 0.5s ease forwards;
-  }
-  
-  @keyframes open {
+}
+
+@keyframes open {
     from {
-      transform: scaleX(0%);
-      visibility: visible;
-      transition-timing-function: ease-out;
+        transform: scaleX(0%);
+        visibility: visible;
+        transition-timing-function: ease-out;
     }
-  
+
     to {
-      transform: scaleX(100%);
+        transform: scaleX(100%);
     }
-  }
+}
