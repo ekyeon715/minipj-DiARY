@@ -119,6 +119,23 @@
             }, 3000); // 2초마다 이미지 전환
         });
 
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const modal = document.querySelector('.modal');
+            const modalOpen = document.querySelector('.modal_btn');
+            const modalClose = document.querySelector('.close_btn');
+
+            //열기 버튼을 눌렀을 때 모달팝업이 열림
+            modalOpen.addEventListener('click', function () {
+                //'on' class 추가
+                modal.classList.add('on');
+            });
+            //닫기 버튼을 눌렀을 때 모달팝업이 닫힘
+            modalClose.addEventListener('click', function () {
+                //'on' class 제거
+                modal.classList.remove('on');
+            });
+        });
+
     </script>
 </head>
 
@@ -176,6 +193,7 @@
                     A. <span>딱히 없는 것 같아요. 그냥 좋아하는 아이돌이 많은 사람입니다.</span></p>
                 <!-- <p class="diary2_q">Q. <span>어쩌구저쩌구</span><br />
                     A. <span>어쩌구저쩌구</span></p> -->
+                <p class="modal_btn">TMI</p>
             </div>
             <div class="diary1_img2">
                 <img style="z-index: 1;" src="" />
@@ -202,6 +220,16 @@
             </div>
             <div class="menu"><span class="matename">
                     <a href="./comment.html" style="text-decoration: none; color: inherit;">GUEST</a></span>
+            </div>
+        </div>
+
+        <!--모달 팝업-->
+        <div class="modal">
+            <div class="modal_popup">
+                <h3>저의 tmi는</h3>
+                <p>음....쫀드기 불에 구워서</p>
+                <p>라면스프에 먹으면 맛있다</p>
+                <button type="button" class="close_btn">닫기</button>
             </div>
         </div>
 </body>
