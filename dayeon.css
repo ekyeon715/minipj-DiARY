@@ -81,15 +81,19 @@ body {
 }
 
 .diary2 {
-    
+    font-family: 'Dovemayo_gothic';
+    font-size: 3vh;
+    font-weight: bold;
 }
 
 .diary2_qa {
-    text-align: left;
+    text-align: center;
     padding: 15px;
     font-family: 'Dovemayo_gothic';
     font-size: 2.5vh;
+    font-weight: 100;
 }
+
 
 /* 다이어리 인덱스 */
 .menu-container {
