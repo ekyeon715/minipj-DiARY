@@ -51,6 +51,7 @@ $(document).ready(function () {
     const q = query(collection(db, "comment"), orderBy("timestamp", "asc")); // 타임스탬프 기준으로 재정렬
     const querySnapshot = await getDocs(q);
   
+    $('#comments').empty(); // 기존 댓글 비우기
     $('#count').text(querySnapshot.size); // 댓글 갯수 업데이트
   
     querySnapshot.forEach((doc) => {
@@ -63,7 +64,7 @@ $(document).ready(function () {
       let comment_html = `            
           <div class="eachComment" id="${id}">
             <div class="name">${user}</div>
-              <span class="inputValue">${comment} <button class="deleteComment" data-id="${id}">삭제</button></span>
+              <span class="inputValue">${comment} <button class="deleteComment" data-id="${id}" data-comment="${comment}">삭제</button></span>
               <div class="time">${time}</div>
           </div>`;
       $('#comments').prepend(comment_html); // 최신 댓글이 위로 올라오도록 prepend 사용
@@ -71,9 +72,14 @@ $(document).ready(function () {
   
     // 삭제 버튼 이벤트
     $('.deleteComment').click(async function () {
-      let id = $(this).data('id');
-      await deleteDoc(doc(db, "comment", id));
-      alert('댓글이 삭제되었습니다.');
-      window.location.reload();
-    });
-  }
+        let id = $(this).data('id');
+        let comment = $(this).data('comment');
+        
+        let confirmation = confirm(`"${comment}" 해당 댓글을 삭제하시겠습니까?`);
+        if (confirmation) {
+          await deleteDoc(doc(db, "comment", id));
+          alert('댓글이 삭제되었습니다.');
+          window.location.reload();
+        }
+      });
+    }
