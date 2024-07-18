@@ -49,6 +49,8 @@
     margin: 30px;
     padding: 0.5em;
     border-bottom: 1px solid #c1bcba;
+    display: flex;
+    justify-content: space-between;
 
 }
 
@@ -62,7 +64,6 @@
 .eachComment .inputValue {
     font-size: 1em;
     display: flex;
-    justify-content: space-between;
 }
 
 .eachComment .time {
