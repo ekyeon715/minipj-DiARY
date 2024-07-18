@@ -126,7 +126,7 @@ body {
     width: 6vh;
     height: 6vh;
     cursor: pointer;
-    fill: red;
+    fill: rgb(255, 106, 106);
 }
 
 .likebtn {
@@ -144,6 +144,8 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    font-family: 'Dovemayo-Medium';
+    color: #fff;
 }
 
 /* 페이드인아웃 */
