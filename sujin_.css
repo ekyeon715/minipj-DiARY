@@ -1,0 +1,221 @@
+
+@font-face {
+    font-family: "SDGothic";
+    src: url("THE_HongChawangjanemo.ttf") format("truetype");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'LeeSeoyun';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/LeeSeoyun.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'UhBeeSe_hyun';
+    src: url('https://gcore.jsdelivr.net/gh/projectnoonnu/noonfonts_five@.2.0/UhBeeSe_hyun.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html,
+body {
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-image: url('https://cdn.discordapp.com/attachments/927134294382612514/1263306044948484178/Pngtreestars_in_dark_blue_night_15572596.png?ex=6699c0f0&is=66986f70&hm=24f6502e1f659569c2fb56ec425c8d4d531bbc21275acdf21263f5a7df64e780&');
+}
+
+/* 드래그 색상 */
+::selection {
+    background: #4369ff;
+    color: #fff;
+}
+
+.diary1 {
+    height: 90%;
+    width: 50%;
+    border: 3px solid black;
+    border-radius: 20px 0 0 20px;
+    border-right: 3px solid rgb(17, 0, 254);
+    background-color: #E6FFFF;
+    background-size: cover;
+}
+
+.diary2 {
+    height: 90%;
+    width: 50%;
+    border: 3px solid black;
+    border-right: 3px solid rgb(17, 0, 254);
+    background-color: #E6FFFF;
+    background-size: cover;
+}
+
+.menu2 {
+    width: 50px;
+    background-color: rgb(0, 3, 170);
+    height: 15%;
+    border-radius: 0 10px 10px 0;
+    margin: -1px auto;
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    border: 3px solid black;
+    transition: background-color 0.3s, color 0.3s, width 0.3s;
+}
+
+/* 다이어리 왼쪽 */
+.diary1_img {
+    display: flex;
+}
+
+.fa-heart {
+    width: 6vh;
+    height: 6vh;
+    cursor: pointer;
+    fill: #ff5252;
+}
+
+.likebtn {
+    border: 0;
+    background-color: transparent;
+    width: auto;
+    height: auto;
+    position: relative;
+    padding: 0;
+}
+
+#likeCount {
+    font-size: 1.5vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'IM_Hyemin-Bold';
+    font-weight: bold;
+    color: white;
+}
+
+.diary1 .joystick{
+
+    width: 20%;
+    height: auto;
+
+}
+
+.diary1_img img {
+    width: 50%;
+    height: 30%;
+    margin: 30px;
+    align-items: left;
+    border-radius: 20px !important;
+}
+
+.diary1_img2 {
+    margin: 0 30px 30px 0;
+    display: flex;
+    justify-content: right;
+}
+
+.diary1_img2 img {
+    width: 25%;
+    height: auto;
+    border-radius: 20px !important;
+}
+
+.diary1_text {
+    text-align: left;
+    padding: 5px;
+    font-size: 2.3vh;
+}
+
+.diary1_text p,
+.diary1_text2 p {
+    color: #0b0156;
+    font-family: "Hahmlet", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+
+}
+
+.diary1_text span {
+    
+        font-family: "Gothic A1", sans-serif;
+        font-weight: 200;
+        font-style: normal;
+      
+          
+    color: #000000;
+}
+
+.diary1_text a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.diary1_text div img {
+    width: 15%;
+    height: auto;
+}
+
+.diary1_text div {
+    margin-top: 13%;
+}
+
+.diary1_text2 {
+    text-align: center;
+    margin-left: 8%;
+    font-size: 2.3vh;
+}
+
+.diary1_text2 span {
+        font-family: "Gothic A1", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 2.3vh;
+      
+          
+    color: #000000;
+    justify-content: center;a
+}
+
+
+/* 다이어리 오른쪽 */
+
+.diary2 p {
+    font-family: "Hahmlet", serif;
+        font-size: 3vh;
+}
+
+.diary2_qa {
+    padding: 0 5% 0 5%;
+    font-family: "Gothic A1", sans-serif;
+    text-align: left;
+}
+
+.diary2_q {
+    color: #0b0156;
+    font-size: 2.5vh !important;
+}
+
+.diary2_qa span {
+    font-family: "Gothic A1", sans-serif;
+    color: #000000;
+}
+#open {
+    animation: open 0.5s ease forwards;
+  }
+  
+  @keyframes open {
+    from {
+      transform: scaleX(0%);
+      visibility: visible;
+      transition-timing-function: ease-out;
+    }
+  
+    to {
+      transform: scaleX(100%);
+    }
+  }
