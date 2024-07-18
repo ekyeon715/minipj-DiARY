@@ -6,14 +6,7 @@ const mainCommentCount = document.querySelector('#count'); //맨위 댓글 숫�
 //타임스템프 만들기
 function generateTime(){
     const date = new Date();
-    const year = ('0' + date.getFullYear()).slice(-2);
-    const month = ('0' + date.getMonth()).slice(-2);
-    const wDate = ('0' + date.getDate()).slice(-2);
-    const hour = ('0' + date.getHours()).slice(-2);
-    const min = ('0' + date.getMinutes()).slice(-2);
-    const sec = ('0' + date.getSeconds()).slice(-2);
-    const time = year+'-'+month+'-'+wDate+' '+hour+':'+min+':'+sec;
-    return time;
+    return date.toLocaleString()
 
 }
 
