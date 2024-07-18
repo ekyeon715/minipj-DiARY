@@ -36,7 +36,7 @@
 
         async function toggleHeart() {
             const userId = crypto.randomUUID(); // 로그인 없이 유니크한 사용자 ID 생성
-            const postId = "seungwoo"; // 예제 포스트 ID
+            const postId = "hyunji"; // 예제 포스트 ID
             const postRef = doc(db, "profile", postId); // 경로 수정
             const userLikeRef = doc(collection(postRef, "likedUsers"), userId);
 
@@ -64,7 +64,7 @@
         likeButton.addEventListener("click", toggleHeart); // 클릭 이벤트 리스너 추가
 
         document.addEventListener("DOMContentLoaded", async () => { // DOMContentLoaded 이벤트 리스너 추가
-            const postId = "seungwoo"; // 예제 포스트 ID
+            const postId = "hyunji"; // 예제 포스트 ID
             const postRef = doc(db, "profile", postId); // 경로 수정
             const postSnap = await getDoc(postRef);
 
