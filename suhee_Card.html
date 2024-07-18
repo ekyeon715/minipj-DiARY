@@ -119,6 +119,54 @@
             background-size: cover;
             background-position: center;
         }
+
+        /*모달 관련*/
+        .modal_btn {
+            display: block;
+            border: none;
+            cursor: pointer;
+            transition: box-shadow 0.2s;
+        }
+
+        .modal.on {
+            display: block;
+        }
+
+
+        .modal {
+            /*팝업 배경*/
+            display: none;
+            /*평소에는 보이지 않도록*/
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal .modal_popup {
+            /*팝업*/
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 20px;
+        }
+
+        .modal .modal_popup .close_btn {
+            display: block;
+            padding: 10px 20px;
+            background-color: rgb(255, 0, 0);
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+            transition: box-shadow 0.2s;
+        }
     </style>
     <script type="module">
         // Firebase SDK 라이브러리 가져오기
@@ -181,7 +229,7 @@
 
         // 이미지 슬라이드 기능 추가
         document.addEventListener("DOMContentLoaded", () => {
-            const images = ['./images/suhee1.jpg', './images/suhee2.png', './images/suhee3.png'];
+            const images = ['./images/suhee1.jpg', './images/suhee1-2.jpg',];
             let currentIndex = 0;
             const profileImage = document.querySelector('.profileimg');
 
@@ -189,6 +237,23 @@
                 currentIndex = (currentIndex + 1) % images.length;
                 profileImage.src = images[currentIndex];
             }, 2000);
+        });
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const modal = document.querySelector('.modal');
+            const modalOpen = document.querySelector('.modal_btn');
+            const modalClose = document.querySelector('.close_btn');
+
+            //열기 버튼을 눌렀을 때 모달팝업이 열림
+            modalOpen.addEventListener('click', function () {
+                //'on' class 추가
+                modal.classList.add('on');
+            });
+            //닫기 버튼을 눌렀을 때 모달팝업이 닫힘
+            modalClose.addEventListener('click', function () {
+                //'on' class 제거
+                modal.classList.remove('on');
+            });
         });
     </script>
 </head>
@@ -201,10 +266,10 @@
                 <p><span>이름</span> : 정수희</p>
                 <p><span>나이</span> : 26</p>
                 <p><span>MBTI</span> : ISFP</p>
-                <div style="position: relative;">
+                <div style="position: relative;" class="modal_btn">
                     <img src="./images/suhee4.png" style="width: 70%; transform: rotate(5deg);">
                     <p class="decotext" style="position: absolute; bottom: 0px; right: 30px; transform: rotate(-5deg);">
-                        우리집 고양이 다롱이♥</p>
+                        우리집 고양이 다롱이♥<BR>누르면 무슨 일이 일어날지도...</p>
                 </div>
             </div>
             <a href="https://velog.io/@darong_/posts"
@@ -233,15 +298,17 @@
             <div style="position: absolute; top: 5%; left: 5%;">
                 <button id="likeButton" class="likebtn">
                     <svg id="toggleImg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="fa-heart">
-                        <path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
+                        <path
+                            d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z" />
+                    </svg>
                     <span id="likeCount">0</span>
                 </button>
             </div>
             <div class="profile-qa"
-                style="line-height: 1.6; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                style="line-height: 1.6; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80%;">
                 <p><span>가장 행복했던 순간</span><br>행복했던 순간 행복했던 순간 행복했던 순간 행복했던 순간</p>
                 <p><span>인생의 목표</span><br>목표목표 목표목표 목표목표 목표목표 목표목표 목표목표</p>
-                <p><span>Q. 고양이가 너무 귀엽습니다. 품종이 뭔가요?.</span><br>A.</p>
+                <p><span>Q. 고양이가 너무 귀엽습니다. 품종이 뭔가요?.</span><br>A. 먼치킨 숏 레그입니다!! 다리가 짧은 게 매력인 고냥이</p>
                 <p><span>Q. 질문을 적어주십쇼.</span><br>A. 답변을 적어주십쇼.</p>
                 <p><span>Q. 질문을 적어주십쇼.</span><br>A. 답변을 적어주십쇼.</p>
                 <p><span>Q. 질문을 적어주십쇼.</span><br>A. 답변을 적어주십쇼.</p>
@@ -270,6 +337,17 @@
                     <a href="./comment.html" style="text-decoration: none; color: inherit;">GUEST</a></span>
             </div>
         </div>
+
+        <!--모달 팝업-->
+        <div class="modal" style="position: absolute; z-index: 2;">
+            <div class="modal_popup">
+                <h3>저의 TMI는...</h3>
+                <p>저는 게임을 진짜진짜진짜 많이 합니다..</p>
+                <p>그럼 이만..</p>
+                <button type="button" class="close_btn">닫기</button>
+            </div>
+        </div>
+
 </body>
 
 </html>

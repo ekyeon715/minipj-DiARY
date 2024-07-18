@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>수진</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="sujin_.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1&family=Hahmlet:wght@500&display=swap" rel="stylesheet">
+
+    <style>
+        #sujin {
+            background-color: #1722ff;
+            color: white;
+        }
+        
+    </style>
+<script type="module">
+    // Firebase SDK 라이브러리 가져오기
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+    import { getFirestore, doc, setDoc, updateDoc, increment, getDoc, collection, deleteDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+
+    // Firebase 구성 정보 설정
+    const firebaseConfig = {
+        apiKey: "AIzaSyCABiHiGzxGELpkUPOgFO_sgwI2SqUblLw",
+        authDomain: "diary-be831.firebaseapp.com",
+        projectId: "diary-be831",
+        storageBucket: "diary-be831.appspot.com",
+        messagingSenderId: "1030858653688",
+        appId: "1:1030858653688:web:e25e3a5d7965126b84600d"
+    };
+
+    // Firebase 인스턴스 초기화
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const likeButton = document.getElementById("likeButton");
+
+    async function toggleHeart() {
+        const userId = crypto.randomUUID(); // 로그인 없이 유니크한 사용자 ID 생성
+        const postId = "suhee"; // 예제 포스트 ID
+        const postRef = doc(db, "profile", postId); // 경로 수정
+        const userLikeRef = doc(collection(postRef, "likedUsers"), userId);
+
+        const docSnap = await getDoc(userLikeRef);
+        let likeCount = 0;
+
+        if (docSnap.exists()) {
+            await deleteDoc(userLikeRef);
+            await updateDoc(postRef, { likeCount: increment(-1) });
+            document.getElementById("toggleImg").classList.remove("filled");
+        } else {
+            await setDoc(userLikeRef, {});
+            await updateDoc(postRef, { likeCount: increment(1) });
+            document.getElementById("toggleImg").classList.add("filled");
+        }
+
+        const postSnap = await getDoc(postRef);
+        if (postSnap.exists()) {
+            likeCount = postSnap.data().likeCount;
+        }
+
+        document.getElementById("likeCount").innerText = likeCount;
+    }
+
+    likeButton.addEventListener("click", toggleHeart); // 클릭 이벤트 리스너 추가
+
+    document.addEventListener("DOMContentLoaded", async () => { // DOMContentLoaded 이벤트 리스너 추가
+        const postId = "suhee"; // 예제 포스트 ID
+        const postRef = doc(db, "profile", postId); // 경로 수정
+        const postSnap = await getDoc(postRef);
+
+        if (postSnap.exists()) {
+            document.getElementById("likeCount").innerText = postSnap.data().likeCount || 0; // 좋아요 수 표시 코드
+        }
+    });
+</script>
+    
+
+</head>
+
+<body>
+
+    <body class="scroll">
+        <div class="main" id="open">
+            <div class="diary1">
+                <div class="diary1_img">
+                    <img
+                        src="https://cdn.discordapp.com/attachments/927134294382612514/1263074333421473843/f468d2b21e95ff17.png?ex=6698e923&is=669797a3&hm=dd49a485ff3a896a53bee2031f396a0953879ed4273aaba9326746ed605e8bad&" />
+                    <div class="diary1_text">
+                        <br />
+                        <p>이름 : <span>강수진</span></p>
+                        <p>나이 : <span>27세</span></p>
+                        <p>MBTI : <span>INFP</span></p>
+                        <p>블로그 주소 : <span style="font-size: 2.2vh;"><a target='_blank'
+                                    href="https://prontjin.tistory.com/">https://prontjin.tistory.com/</a></span></p>
+                                    <div style="position: absolute; top: 5%; left: 5%;">
+                                        <button id="likeButton" class="likebtn">
+                                            <svg id="toggleImg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="fa-heart">
+                                                <path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
+                                            <span id="likeCount">0</span>
+                                        </button>
+                                    </div>
+                        <div><img class="joystick"
+                                src="https://media.discordapp.net/attachments/927134294382612514/1263054940960587858/Senza-titolo-2.png?ex=6698d714&is=66978594&hm=0eb9caf5f9b28281f0b7d6b7a0c929652f365f154cf99635893f5ee8369639eb&=&format=webp&quality=lossless&width=1054&height=700"
+                                alt="게임기" />
+                            <img class="joystick"
+                                src="https://media.discordapp.net/attachments/927134294382612514/1263054940960587858/Senza-titolo-2.png?ex=6698d714&is=66978594&hm=0eb9caf5f9b28281f0b7d6b7a0c929652f365f154cf99635893f5ee8369639eb&=&format=webp&quality=lossless&width=1054&height=700"
+                                alt="게임기" />
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="diary1_text2">
+                        <p>취미 : <span>게임, 그림그리기</span></p>
+                        <p>협업 스타일 : <span>의견을 다 들어보고 종합하는 스타일.<br> 최대한 모든 의견을 반영하려고 노력함</br></span></p>
+                        <p>나만의 스타일 : <span>자유분방</span></p>
+                        <p>객관적으로 살펴본 장점과 단점 : <br><span>장점 - 근성이 있다 / 단점 - 걱정이 많다</span></br></p>
+                        <p>요즘 즐겨듣는 노래 : <span>아이유의 Love wins all</span></p>
+                        <p>한 마디 : <span style="font-size: 2.2vh;">오늘도 뚠뚠 개미는 뚠뚠 열심히 코딩 하네 뚠뚠</span></p>
+                    </div>
+                    <div class="diary1_img2">
+                        <img
+                            src="https://cdn.discordapp.com/attachments/1254426162470584321/1262741252009623610/66.png?ex=6697b2ef&is=6696616f&hm=b9f19fbb775a0b42ca7f1b620e1e257694342e1bcf87cc91606b91d1bbd0dc7a&" />
+                    </div>
+                </div>
+            </div>
+            <div class="diary2">
+                <P>질의응답</P>
+                <div class="diary2_qa">
+                    <p class="diary2_q">Q. <span>가장 행복했던 순간</span><br />
+                        A. <span>길가다 오만원 주웠을 때</span></p>
+                    <p class="diary2_q">Q. <span>인생의 목표</span><br />
+                        A. <span>흘러가는 대로 살기</span></p>
+                    <p class="diary2_q">Q. <span>게임 외에도 다른 취미도 있으신가요!?</span><br />
+                        A. <span>그림그리기, 넷플릭스 드라마 보기를 좋아합니다! 요즘은 [돌풍] 재미있게 보고 있어요 ㅎㅎ</span></p>
+                    <p class="diary2_q">Q. <span>인생게임 궁금해요</span><br />
+                        A. <span>Hollow Knight라는 게임이요! 세계관이 매력적인 게임입니다</span></p>
+                    <p class="diary2_q">Q. <span>어쩌구저쩌구</span><br />
+                        A. <span>어쩌구저쩌구</span></p>
+                    <p class="diary2_q">Q. <span>어쩌구저쩌구</span><br />
+                        A. <span>어쩌구저쩌구</span></p>
+                    <p class="diary2_q">Q. <span>어쩌구저쩌구</span><br />
+                        A. <span>어쩌구저쩌구</span></p>
+                </div>
+                <div class="diary1_img2">
+                    <img style="z-index: 1;"
+                        src="https://media.discordapp.net/attachments/1254426162470584321/1262741252835901480/99.png?ex=6697b2ef&is=6696616f&hm=3bb73ec5728f116fabd4297cebaaf790e976a3c1dd6115c8bce896c2ab7e4484&=&format=webp&quality=lossless&width=818&height=273" />
+                </div>
+            </div>
+            <div class="menu-container">
+                <div class="menu"><span class="matename">
+                        <a href="../introduce/intro_team.html"
+                            style="text-decoration: none; color: inherit;">TEAM</a></span>
+                </div>
+                <div class="menu1"><span class="matename">
+                        <a href="../dayeon_Card.html" style="text-decoration: none; color: inherit;">DAYEON</a></span>
+                </div>
+                <div class="menu2"><span class="matename">
+                        <a href="../sujin_Card.html" style="text-decoration: none; color: inherit;">SUJIN</a></span>
+                </div>
+                <div class="menu3"><span class="matename">
+                        <a href="./hyunji_Card.html" style="text-decoration: none; color: inherit;">HYUNJI</a></span>
+                </div>
+                <div class="menu4"><span class="matename">
+                        <a href="../suhee_Card.html" style="text-decoration: none; color: inherit;">SUHEE</a></span>
+                </div>
+                <div class="menu5"><span class="matename">
+                        <a href="../seungwoo_Card.html"
+                            style="text-decoration: none; color: inherit;">SEUNGWOO</a></span>
+                </div>
+                <div class="menu"><span class="matename">
+                        <a href="../comment.html" style="text-decoration: none; color: inherit;">방명록</a></span>
+                </div>
+            </div>
+    </body>
+
+</html>
+</body>
+
+
+</html>

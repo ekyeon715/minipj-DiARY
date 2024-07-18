@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+
+@font-face {
+    font-family: 'Dovemayo_gothic';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.1/Dovemayo_gothic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Dovemayo-Medium';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.0/Dovemayo-Medium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+/* 스크롤바 삭제 css */
+.scroll::-webkit-scrollbar {
+    display: none;
+}
+
+/* 드래그 색상 */
+::selection {
+    background: #f1b3b2;
+    color: #fff;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+/* 다이어리를 화면 가운데에 오도록 조정 */
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+.diary {
+    height: 90%;
+    width: 800px;
+    border: 3px solid black;
+    background-color: white;
+    border-radius: 40px 0 0 40px;
+    position: relative;
+}
+
+.prImg {
+    background-size: cover;
+    background-position: center;
+    width: 50%;
+    height: auto;
+    border-radius: 10px;
+    margin: 2vh 2vh 1vh 2vh;
+    display: inline-block;
+}
+
+.diary1_text {
+    padding: 15px;
+    font-family: 'Dovemayo_gothic';
+    font-size: 2.5vh;
+    display: inline-block;
+    width: 40%;
+    vertical-align: top;
+    margin-top: 2vh;
+    font-size: 2.5vh;
+    text-align: center;
+}
+
+.diary1_text span {
+    text-align: left;
+    padding: 15px;
+    font-family: 'Dovemayo-Medium';
+    font-size: 2vh;
+}
+
+.diary1_text2 {
+    text-align: left;
+    padding: 15px;
+    font-family: 'Dovemayo_gothic';
+    font-size: 2.5vh;
+    margin-left: 5%;
+}
+
+.diary1_text2 span {
+    text-align: left;
+    padding: 15px;
+    font-family: 'Dovemayo-Medium';
+    font-size: 2.1vh;
+}
+
+.diary2 {
+    font-family: 'Dovemayo_gothic';
+    font-size: 3vh;
+    font-weight: bold;
+}
+
+.diary2_qa {
+    text-align: center;
+    padding: 15px;
+    font-family: 'Dovemayo_gothic';
+    font-size: 2.5vh;
+    font-weight: 100;
+}
+
+
+/* 다이어리 인덱스 */
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 90.3%;
+    margin-left: -2px;
+}
+
+.menu1,
+.menu2,
+.menu3,
+.menu4,
+.menu5,
+.menu {
+    width: 50px;
+    background-color: white;
+    height: 15%;
+    border-radius: 0 10px 10px 0;
+    margin: -1px auto;
+    color: black;
+    display: flex;
+    justify-content: center;
+    border: 3px solid black;
+    transition: background-color 0.3s, color 0.3s, width 0.3s;
+}
+
+.matename {
+    writing-mode: vertical-rl;
+    font-size: 1.8vh;
+    letter-spacing: 0.1vh;
+    font-family: "Titillium Web", sans-serif;
+    font-weight: 600;
+}
+
+.menu:hover {
+    background-color: black;
+    color: white;
+}
+
+.menu1:hover {
+    background-color: #F2A2B8;
+    color: white;
+}
+
+.menu2:hover {
+    background-color: #1722ff;
+    color: white;
+}
+
+.menu3:hover {
+    background-color: #00aa1a;
+    color: white;
+}
+
+.menu4:hover {
+    background-color: #FF7E7E;
+    color: white;
+}
+
+.menu5:hover {
+    background-color: #DF0101;
+    color: white;
+}
+
+/* 페이지 열리는 효과 */
+#open {
+    animation: open 0.7s ease forwards;
+}
+
+@keyframes open {
+    from {
+        transform: scaleX(0%);
+        visibility: visible;
+        transition-timing-function: ease-out;
+    }
+
+    to {
+        transform: scaleX(100%);
+    }
+}
