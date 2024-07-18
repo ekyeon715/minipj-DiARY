@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>This is Suhee Card</title>
     <link rel="stylesheet" href="style.css" />
+    <script type="module" src="seungwoo_Card.js" defer></script>
     <style>
         @font-face {
             font-family: 'IM_Hyemin-Bold';
@@ -89,11 +90,12 @@
             color: #000000;
         }
 
+        /* 하트 색 수정 */
         .fa-heart {
             width: 6vh;
             height: 6vh;
             cursor: pointer;
-            fill: #ff5252;
+            fill: red;
         }
 
         .likebtn {
@@ -117,7 +119,7 @@
         }
 
         body {
-            background-image: url(https://png.pngtree.com/thumb_back/fh260/background/20190223/ourmid/pngtree-simple-red-shading-background-illustration-design-backgroundscience-and-technologyred-image_70514.jpg);
+            background-image: url(https://static0.gamerantimages.com/wordpress/wp-content/uploads/2023/05/arasaka-red-logo.jpg);
             background-size: cover;
             background-position: center;
         }
@@ -278,7 +280,7 @@
                 <p><span>MBTI</span> : ISTJ</p>
                 <p class="modal_btn">My Tmi..이모저모..</p>
                 <div style="position: relative;">
-                    <img src="./images/seungwoo4.jpg" style="width: 80%; transform: rotate(5deg);">
+                    <img src="./images/seungwoo4.jpg" style="width: 80%; transform: rotate(5deg);"> <!--넓이 조절, 가운데 정렬-->
                     <p class="decotext"
                         style="position: absolute; bottom: 0px; right: 30px; transform: rotate(15deg);  color: #ff0000; ">
                         저 아닙니다.. 제가 좋아하는 가수임돠..</p>
@@ -286,7 +288,7 @@
             </div>
             <a href="https://blog.fujiikaze.kr"
                 style="text-decoration: none; color: #ff0000; margin-left: 15%; font-size: 1.5vh; font-weight: bold;">https://blog.fujiikaze.kr</a>
-            <div class="profile-qa" style="position: relative;">
+            <div class="profile-qa" style="position: relative; width: 90%; margin: 0 auto;">
                 <img src="./images/seungwoo7.png"
                     style="top: 0%; right: 5%; width: 25%; position: absolute; transform: rotate(8deg);">
 
@@ -315,7 +317,7 @@
                 </div>
             </div>
         </div>
-        <div class="diary2" style="position: relative;">
+        <div class="diary2" style="position: relative;"> 
             <div style="position: absolute; top: 5%; left: 5%;">
                 <button id="likeButton" class="likebtn">
                     <svg id="toggleImg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="fa-heart">
@@ -326,18 +328,18 @@
                 </button>
             </div>
             <div class="profile-qa"
-                style="line-height: 1.6; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                style="line-height: 1.6; width: 60%; margin: 0 auto;"> <!--넓이 조절, 가운데 정렬-->
                 <div style="position: relative;">
-                    <img src="./images/seungwoo5.jpg" style="width: 70%; transform: rotate(-5deg);">
+                    <img src="./images/seungwoo5.jpg" style="width: 75%; transform: rotate(8deg);">
                     <p class="decotext"
-                        style="position: absolute; bottom: 0px; right: 30px; transform: rotate(-deg);  color: #ffffff; ">
+                        style="position: absolute; bottom: 0px; left: 50px; transform: rotate(8deg);  color: #ffffff; ">
                         저 아닙니다.. 제가 좋아하는 가수임돠..</p>
                 </div>
-                <p><span>가장 행복했던 순간</span><br>좋아하는 음악을 들을 때,주말에 수영 갈 때,가족,친구 등 소중한 사람들과 여행가서 자유를 만끽할 때,공항 갈 때..</p>
+                <p><span>가장 행복했던 순간</span><br>좋아하는 음악을 들을 때,주말에 수영 갈 때<br>가족,친구 등 소중한 사람들과 여행가서 자유를 만끽할 때,공항 갈 때..</p>
                 <p><span>인생의 목표</span><br>"모든 일이 과정이었던 인생을 살고싶다."</p>
-                <p><span>Q. 어떤 장르의 음악을 가장 좋아하시나요?. 추천곡도 부탁드립니다!</span><br>A. Pop이나 J-POP 다 너무 좋아하고, 매일 들어요. 추천곡은 리듬감 있는 음악을 좋아하실 것 같아서, 링크 띄워드립니다.<br><a href="https://youtu.be/tgIS6ThNTVk?si=MZfcJTZpfu6l0bxO" target="_blank"
+                <p><span>Q. 어떤 장르의 음악을 가장 좋아하시나요? <br>추천곡도 부탁드립니다!</span><br>A. Pop이나 J-POP 다 너무 좋아하고, 매일 들어요. 추천곡은 리듬감 있는 음악을 좋아하실 것 같아서, 링크 띄워드립니다.<br><a href="https://youtu.be/tgIS6ThNTVk?si=MZfcJTZpfu6l0bxO" target="_blank"
                     style="font-weight: bold; text-decoration: none; color: #ff0000">Audrey Mika (오드리 미카) - Just Friends</a></p> </p>
-                <p><span>Q. 페이지의 가수는 어떤 음악 하시는 분인가요?.</span><br>A. 두 분 다 J-POP 아티스트이신데요. 남성 분은 후지이 카제라는 분이시고, 여성 분은 동경사변의 프론트우먼인 시이나 링고입니다. 두 아티스트 모두 제가 엄청나게 좋아하는 분들이네요.</p>
+                <p><span>Q. 페이지의 가수는 어떤 음악 하시는 분인가요?.</span><br>A. 두 분 다 J-POP 아티스트이신데요. 남성 분은 후지이 카제라는 분이시고<br>여성 분은 동경사변의 프론트우먼인 시이나 링고입니다<br>두 아티스트 모두 제가 엄청나게 좋아하는 분들이네요.</p>
                 <p><span>Q. 블로그 주소의 뜻이 궁금합니다.</span><br>A. https://blog.fujiikaze.kr 이 블로그 주소는 제가 제일 좋아하는 J-POP 아티스트<br>'후지이 카제'의 이름을 그대로 가져왔어요. 이 질문 관련하여 제가 블로그 초기 때 글을 작성한 것도 있네요 ㅋㅋ.. <br> <a href="https://blog.fujiikaze.kr/entry/TMI-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%A3%BC%EC%9D%B8%EC%9E%A5-%EB%8B%89%EB%84%A4%EC%9E%84%EC%9D%98-%EC%9C%A0%EB%9E%98" target="_blank"
                     style="font-weight: bold; text-decoration: none; color: #ff0000">[TMI 블로그 주인장 닉네임의 유래]</a></p>
                 <p><span>Q. 수영 다니는 게 힘들텐데, 어떻게 그렇게 자주 가시나요?..</span><br>A. 예전엔 자주 갔었지만, 요즘은 스케줄 상 조금 줄여서 주에 한번 정도 가는 대신 한번 갈 때<br>길게 하고 오는 편이죠 ㅎㅎ..제가 좋아하는 취미<br>라서 갈 때마다 설레고 행복해요. 이런 취미를 할 수 있어서 감사하고 있어요. 그게 원동력입니다..ㅎ...</p>

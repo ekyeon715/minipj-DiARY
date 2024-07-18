@@ -35,21 +35,31 @@ body {
 
 .diary1 {
     height: 90%;
-    width: 50%;
+    width: 1000px; /* 넓이 고정값으로 변경 */
     border: 3px solid black;
     border-radius: 20px 0 0 20px;
     border-right: 3px solid rgb(17, 0, 254);
     background-color: #E6FFFF;
     background-size: cover;
+    overflow: scroll; /* 내용이 넘어가면 스크롤 */
+}
+
+.diary1::-webkit-scrollbar {
+    display: none /* 스크롤 바 숨기기 */
 }
 
 .diary2 {
     height: 90%;
-    width: 50%;
+    width: 1000px; /* 넓이 고정값으로 변경 */
     border: 3px solid black;
     border-right: 3px solid rgb(17, 0, 254);
     background-color: #E6FFFF;
     background-size: cover;
+    overflow: scroll; /* 내용이 넘어가면 스크롤 */
+}
+
+.diary2::-webkit-scrollbar {
+    display: none /* 스크롤 바 숨기기 */
 }
 
 .menu2 {
@@ -103,6 +113,7 @@ body {
     height: auto;
     margin: 0; 
     padding: 0;
+    position: relative;
 
 }
 
@@ -206,6 +217,8 @@ body {
     font-family: "Gothic A1", sans-serif;
     color: #000000;
 }
+
+
 #open {
     animation: open 0.5s ease forwards;
   }
