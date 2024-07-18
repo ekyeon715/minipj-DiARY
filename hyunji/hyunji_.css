@@ -85,11 +85,21 @@ body {
     z-index: 2;
 }
 
-.diary1_img2 img {
+.diary1_img2_2 {
     width: 25%;
     height: auto;
     border-radius: 20px !important;
+    margin-top: 120%;
+    margin-right: -92%;
 
+}
+
+.diary1_img2_1 {
+    width: 25%;
+    height: auto;
+    border-radius: 20px !important;
+    margin-top: 100%;
+    margin-right: 60%;
 }
 
 .diary1_text {
@@ -97,6 +107,7 @@ body {
     padding: 15px;
     font-family: 'UhBeeSe_hyun';
     font-size: 1.8vh;
+    margin-right: 8%;
 }
 
 .diary1_text p,
@@ -173,6 +184,14 @@ body {
     color: #000000;
 }
 
+.diary2 {
+    overflow: scroll;
+}
+
+.diary2::-webkit-scrollbar {
+    display: none
+}
+
 #open {
     animation: open 0.5s ease forwards;
 }
@@ -187,4 +206,32 @@ body {
     to {
         transform: scaleX(100%);
     }
+}
+
+/*좋아요 버튼*/
+.likebtn {
+    border: 0;
+    background-color: transparent;
+    width: auto;
+    height: auto;
+    position: relative;
+    padding: 0;
+}
+
+#likeCount {
+    font-size: 1.5vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'IM_Hyemin-Bold';
+    font-weight: bold;
+    color: white;
+}
+
+.fa-heart {
+    width: 6vh;
+    height: 6vh;
+    cursor: pointer;
+    fill: #ff5252;
 }
