@@ -1,112 +1,79 @@
-const inputBar = document.querySelector("#comment-input");
-const rootDiv = document.querySelector("#comments");
-const btn = document.querySelector("#submit");
-const mainCommentCount = document.querySelector('#count'); //맨위 댓글 숫자 세는거.
+// Firebase SDK 라이브러리 가져오기
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+import { getFirestore, collection, addDoc, getDocs, deleteDoc, query, orderBy, doc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
-//타임스템프 만들기
-function generateTime(){
-    const date = new Date();
-    return date.toLocaleString()
+// Firebase 설정
+const firebaseConfig = {
+    apiKey: "AIzaSyCABiHiGzxGELpkUPOgFO_sgwI2SqUblLw",
+    authDomain: "diary-be831.firebaseapp.com",
+    projectId: "diary-be831",
+    storageBucket: "diary-be831.appspot.com",
+    messagingSenderId: "1030858653688",
+    appId: "1:1030858653688:web:e25e3a5d7965126b84600d"
+};
 
-}
+// Firebase 인스턴스 초기화
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
-//유저이름 발생기
-//유저이름은 8글자로 제한.
-function generateUserName(){
-    let alphabet = 'abcdefghijklmnopqrstuvwxyz';
-    var makeUsername = '';
-    for(let i=0; i<4;i++){
-        let index = Math.floor(Math.random(10) * alphabet.length);
-        makeUsername += alphabet[index];        
-    }
-    for(let j=0;j<4;j++){
-        makeUsername += "*";
-    }
-    return makeUsername;    
-}
+// 입력한 데이터 Firebase 넘기기
+$(document).ready(function () {
+    loadComments();
+  
+    $("#submit").click(async function () {
+      let comment = $('#comment-input').val();
+      let user = $('#user-input').val();
+  
+      let date = new Date();
+      let year = ('0' + date.getFullYear()).slice(-2);
+      let month = ('0' + (date.getMonth() + 1)).slice(-2);
+      let wDate = ('0' + date.getDate()).slice(-2);
+      let hour = ('0' + date.getHours()).slice(-2);
+      let min = ('0' + date.getMinutes()).slice(-2);
+      let sec = ('0' + date.getSeconds()).slice(-2);
+      let usertime = year + '-' + month + '-' + wDate + ' ' + hour + ':' + min + ':' + sec;
+  
+      let docData = {
+        'user': user,
+        'comment': comment,
+        'time': usertime,
+        'timestamp': date.getTime() // 시간 정렬순 타임스탬프
+      };
+      await addDoc(collection(db, "comment"), docData);
+      alert('발자취를 남겼습니다 :)');
+      window.location.reload();
+    });
+  });
+  
 
-function numberCount(event){
-    console.log(event.target);
-    if(event.target === voteUp){
-        console.log("2");
-      return voteUp.innerHTML++; 
-      
-    }else if(event.target === voteDown){
-      return voteDown.innerHTML++; 
-    }   
-    
-}
-
-function deleteComments(event){    
-    const btn = event.target;    
-    const list = btn.parentNode.parentNode;//commentList
-    rootDiv.removeChild(list);
-    //메인댓글 카운트 줄이기.
-    if(mainCommentCount.innerHTML <='0'){
-        mainCommentCount.innerHTML = 0;
-    }else{
-        mainCommentCount.innerHTML--;
-    }
-}
-
-
-//댓글보여주기
-function showComment(comment){
-    const userName = document.createElement('div');
-    const inputValue = document.createElement('span');
-    const showTime = document.createElement('div');
-    const voteDiv = document.createElement('div');
-    const countSpan = document.createElement('span')
-    const voteUp = document.createElement('button');
-    const voteDown = document.createElement('button');  
-    const commentList = document.createElement('div');  //이놈이 스코프 밖으로 나가는 순간 하나지우면 다 지워지고 입력하면 리스트 다불러옴.
-    //삭제버튼 만들기
-    const delBtn = document.createElement('button');
-    delBtn.className ="deleteComment";
-    delBtn.innerHTML="삭제";
-    commentList.className = "eachComment";
-    userName.className="name";
-    inputValue.className="inputValue";
-    showTime.className="time";
-    voteDiv.className="voteDiv";
-    //유저네임가져오기 
-    userName.innerHTML = generateUserName();    
-    userName.appendChild(delBtn);  
-    //입력값 넘기기
-    inputValue.innerText = comment;
-    //타임스템프찍기
-    showTime.innerHTML = generateTime();
-    countSpan.innerHTML=0;
-   
-
-    //댓글뿌려주기       
-    commentList.appendChild(userName);
-    commentList.appendChild(inputValue);
-    commentList.appendChild(showTime);
-    commentList.appendChild(voteDiv);
-    rootDiv.prepend(commentList);
-
-    voteUp.addEventListener("click",numberCount);
-    voteDown.addEventListener("click",numberCount);
-    delBtn.addEventListener("click",deleteComments);
-   console.dir(rootDiv);
-
-}
-
-
-
-//버튼만들기+입력값 전달
-function pressBtn(){ 
-   const currentVal = inputBar.value;
-   
-   if(!currentVal.length){
-      alert("댓글을 입력해주세요!!");
-   }else{
-      showComment(currentVal);  
-      mainCommentCount.innerHTML++;
-      inputBar.value ='';
-   }
-}
-
-btn.onclick = pressBtn;
-
+  // 입력된 데이터 HTML로 불러오기
+  async function loadComments() {
+    const q = query(collection(db, "comment"), orderBy("timestamp", "asc")); // 타임스탬프 기준으로 재정렬
+    const querySnapshot = await getDocs(q);
+  
+    $('#count').text(querySnapshot.size); // 댓글 갯수 업데이트
+  
+    querySnapshot.forEach((doc) => {
+      let row = doc.data();
+      let comment = row['comment'];
+      let time = row['time'];
+      let user = row['user']
+      let id = doc.id;
+  
+      let comment_html = `            
+          <div class="eachComment" id="${id}">
+            <div class="name">${user}</div>
+              <span class="inputValue">${comment} <button class="deleteComment" data-id="${id}">삭제</button></span>
+              <div class="time">${time}</div>
+          </div>`;
+      $('#comments').prepend(comment_html); // 최신 댓글이 위로 올라오도록 prepend 사용
+    });
+  
+    // 삭제 버튼 이벤트
+    $('.deleteComment').click(async function () {
+      let id = $(this).data('id');
+      await deleteDoc(doc(db, "comment", id));
+      alert('댓글이 삭제되었습니다.');
+      window.location.reload();
+    });
+  }
