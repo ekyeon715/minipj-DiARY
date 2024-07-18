@@ -52,11 +52,26 @@ body {
     position: relative;
 }
 
-.diary1_text{
-    text-align: left;
+.prImg {
+    background-size: cover;
+    background-position: center;
+    width: 50%;
+    height: auto;
+    border-radius: 10px;
+    margin: 2vh 2vh 1vh 2vh;
+    display: inline-block;
+}
+
+.diary1_text {
     padding: 15px;
     font-family: 'Dovemayo_gothic';
     font-size: 2.5vh;
+    display: inline-block;
+    width: 40%;
+    vertical-align: top;
+    margin-top: 2vh;
+    font-size: 2.5vh;
+    text-align: center;
 }
 
 .diary1_text span {
@@ -71,6 +86,7 @@ body {
     padding: 15px;
     font-family: 'Dovemayo_gothic';
     font-size: 2.5vh;
+    margin-left: 5%;
 }
 
 .diary1_text2 span {
