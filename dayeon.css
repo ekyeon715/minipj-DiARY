@@ -139,11 +139,23 @@ body {
 }
 
 #likeCount {
-    font-size: 2vh;
+    font-size: 1.1vh;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+/* 페이드인아웃 */
+.prImg {
+    background-size: cover;
+    background-position: center;
+    width: 50%;
+    height: auto;
+    border-radius: 10px;
+    margin: 2vh 2vh 1vh 2vh;
+    display: inline-block;
+    transition: opacity 0.5s ease-in-out;
 }
 
 
