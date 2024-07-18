@@ -120,6 +120,33 @@ body {
     font-size: 2.1vh;
 }
 
+/* 좋아요버튼 */
+
+.fa-heart {
+    width: 6vh;
+    height: 6vh;
+    cursor: pointer;
+    fill: red;
+}
+
+.likebtn {
+    border: 0;
+    background-color: transparent;
+    width: auto;
+    height: auto;
+    position: relative;
+    padding: 0;
+}
+
+#likeCount {
+    font-size: 2vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
 
 /* 다이어리 인덱스 */
 .menu-container {
