@@ -109,7 +109,6 @@ body {
 @keyframes open {
   from {
     transform: scaleX(0%);
-    visibility: visible;
     transition-timing-function: ease-out;
   }
 
