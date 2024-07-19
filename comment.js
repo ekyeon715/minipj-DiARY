@@ -49,13 +49,13 @@ $(document).ready(function () {
 
 // 입력된 데이터 HTML로 불러오기
 async function loadComments() {
-  const q = query(collection(db, "comment"), orderBy("timestamp", "asc")); // 타임스탬프 기준으로 재정렬
-  const querySnapshot = await getDocs(q);
+  const cmtdb = query(collection(db, "comment"), orderBy("timestamp", "asc")); // 타임스탬프 기준으로 재정렬
+  const commentdb = await getDocs(cmtdb);
 
   $('#comments').empty(); // 기존 댓글 비우기
-  $('#count').text(querySnapshot.size); // 댓글 갯수 업데이트
+  $('#count').text(commentdb.size); // 댓글 갯수 업데이트
 
-  querySnapshot.forEach((doc) => {
+  commentdb.forEach((doc) => {
     let row = doc.data();
     let comment = row['comment'];
     let time = row['time'];
