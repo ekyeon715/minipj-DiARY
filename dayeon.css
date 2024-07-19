@@ -86,7 +86,7 @@ body {
 }
 
 .diary1_text2 {
-    text-align: left;
+    text-align: center;
     padding: 15px;
     font-family: 'Dovemayo_gothic';
     font-size: 2.5vh;
@@ -206,6 +206,9 @@ body {
     color: #fff;
     cursor: pointer;
     transition: box-shadow 0.2s;
+}
+.modal_btn {
+    color: #aaaaaa;
 }
 
 
