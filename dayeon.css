@@ -1,226 +1,222 @@
-@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;400;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap");
 
 @font-face {
-    font-family: 'Dovemayo_gothic';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.1/Dovemayo_gothic.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Dovemayo_gothic";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.1/Dovemayo_gothic.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'Dovemayo-Medium';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.0/Dovemayo-Medium.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Dovemayo-Medium";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.0/Dovemayo-Medium.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
-
-
 
 /* 스크롤바 삭제 css */
 .scroll::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 /* 드래그 색상 */
 ::selection {
-    background: #f1b3b2;
-    color: #fff;
+  background: #f1b3b2;
+  color: #fff;
 }
 
 html,
 body {
-    height: 100%;
+  height: 100%;
 }
 
 /* 다이어리를 화면 가운데에 오도록 조정 */
 .main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  text-align: center;
 }
 
 .diary {
-    height: 90%;
-    width: 800px;
-    border: 3px solid black;
-    background-color: white;
-    border-radius: 40px 0 0 40px;
-    position: relative;
+  height: 90%;
+  width: 800px;
+  border: 3px solid black;
+  background-color: white;
+  border-radius: 40px 0 0 40px;
+  position: relative;
 }
 
 .prImg {
-    background-size: cover;
-    background-position: center;
-    width: 50%;
-    height: auto;
-    border-radius: 10px;
-    margin: 2vh 2vh 1vh 2vh;
-    display: inline-block;
+  background-size: cover;
+  background-position: center;
+  width: 50%;
+  height: auto;
+  border-radius: 10px;
+  margin: 2vh 2vh 1vh 2vh;
+  display: inline-block;
 }
 
 .diary1_text {
-    padding: 15px;
-    font-family: 'Dovemayo_gothic';
-    font-size: 2.5vh;
-    display: inline-block;
-    width: 40%;
-    vertical-align: top;
-    margin-top: 2vh;
-    font-size: 2.5vh;
-    text-align: center;
+  padding: 15px;
+  font-family: "Dovemayo_gothic";
+  font-size: 2.5vh;
+  display: inline-block;
+  width: 40%;
+  vertical-align: top;
+  margin-top: 2vh;
+  font-size: 2.5vh;
+  text-align: center;
 }
 
 .diary1_text span {
-    text-align: left;
-    padding: 15px;
-    font-family: 'Dovemayo-Medium';
-    font-size: 2vh;
+  text-align: left;
+  padding: 15px;
+  font-family: "Dovemayo-Medium";
+  font-size: 2vh;
 }
 
 .title_qa {
-    color: #f85a84;
+  color: #f85a84;
 }
 
 .diary1_text2 {
-    text-align: center;
-    padding: 15px;
-    font-family: 'Dovemayo_gothic';
-    font-size: 2.5vh;
-    margin-left: 5%;
+  text-align: center;
+  padding: 15px;
+  font-family: "Dovemayo_gothic";
+  font-size: 2.5vh;
+  margin-left: 5%;
 }
 
 .diary1_text2 span {
-    text-align: left;
-    padding: 15px;
-    font-family: 'Dovemayo-Medium';
-    font-size: 2.1vh;
+  text-align: left;
+  padding: 15px;
+  font-family: "Dovemayo-Medium";
+  font-size: 2.1vh;
 }
 
 .diary2 {
-    font-family: 'Dovemayo_gothic';
-    font-size: 4vh;
-    font-weight: 200;
+  font-family: "Dovemayo_gothic";
+  font-size: 4vh;
+  font-weight: 200;
 }
 
 .diary2_qa {
-    text-align: center;
-    padding: 10px;
-    font-family: 'Dovemayo_gothic';
-    font-size: 2.5vh;
-    font-weight: 100;
+  text-align: center;
+  padding: 10px;
+  font-family: "Dovemayo_gothic";
+  font-size: 2.5vh;
+  font-weight: 100;
 }
 
 .diary2_qa span {
-    padding: 15px;
-    font-family: 'Dovemayo-Medium';
-    font-size: 2.1vh;
+  padding: 15px;
+  font-family: "Dovemayo-Medium";
+  font-size: 2.1vh;
 }
 
 /* 좋아요버튼 */
 
 .fa-heart {
-    width: 6vh;
-    height: 6vh;
-    cursor: pointer;
-    fill: rgb(255, 106, 106);
+  width: 6vh;
+  height: 6vh;
+  cursor: pointer;
+  fill: rgb(255, 106, 106);
 }
 
 .likebtn {
-    border: 0;
-    background-color: transparent;
-    width: auto;
-    height: auto;
-    position: relative;
-    padding: 0;
+  border: 0;
+  background-color: transparent;
+  width: auto;
+  height: auto;
+  position: relative;
+  padding: 0;
 }
 
 #likeCount {
-    font-size: 1.1vh;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: 'Dovemayo-Medium';
-    color: #fff;
+  font-size: 1.1vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Dovemayo-Medium";
+  color: #fff;
 }
 
 /* 페이드인아웃 */
 .prImg {
-    background-size: cover;
-    background-position: center;
-    width: 50%;
-    height: auto;
-    border-radius: 10px;
-    margin: 2vh 2vh 1vh 2vh;
-    display: inline-block;
-    transition: opacity 0.5s ease-in-out;
+  background-size: cover;
+  background-position: center;
+  width: 50%;
+  height: auto;
+  border-radius: 10px;
+  margin: 2vh 2vh 1vh 2vh;
+  display: inline-block;
+  transition: opacity 0.5s ease-in-out;
 }
 
 /*모달 관련*/
 .modal_btn {
-    display: block;
-    border: none;
-    cursor: pointer;
-    transition: box-shadow 0.2s;
+  display: block;
+  border: none;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
 }
 
 .modal.on {
-    display: block;
+  display: block;
 }
 
-
 .modal {
-    /*팝업 배경*/
-    display: none;
-    /*평소에는 보이지 않도록*/
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    background: rgba(0, 0, 0, 0.5);
+  /*팝업 배경*/
+  display: none;
+  /*평소에는 보이지 않도록*/
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .modal .modal_popup {
-    /*팝업*/
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px;
-    background: #ffffff;
-    border-radius: 20px;
+  /*팝업*/
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 20px;
 }
 
 .modal .modal_popup .close_btn {
-    display: block;
-    padding: 10px 20px;
-    background-color: rgb(255, 0, 0);
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-    cursor: pointer;
-    transition: box-shadow 0.2s;
+  display: block;
+  padding: 10px 20px;
+  background-color: rgb(255, 0, 0);
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
 }
 .modal_btn {
-    color: #aaaaaa;
+  color: #aaaaaa;
 }
-
-
-
 
 /* 다이어리 인덱스 */
 .menu-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 90.3%;
-    margin-left: -2px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 90.3%;
+  margin-left: -2px;
 }
 
 .menu1,
@@ -229,69 +225,69 @@ body {
 .menu4,
 .menu5,
 .menu {
-    width: 50px;
-    background-color: white;
-    height: 15%;
-    border-radius: 0 10px 10px 0;
-    margin: -1px auto;
-    color: black;
-    display: flex;
-    justify-content: center;
-    border: 3px solid black;
-    transition: background-color 0.3s, color 0.3s, width 0.3s;
+  width: 50px;
+  background-color: white;
+  height: 15%;
+  border-radius: 0 10px 10px 0;
+  margin: -1px auto;
+  color: black;
+  display: flex;
+  justify-content: center;
+  border: 3px solid black;
+  transition: background-color 0.3s, color 0.3s, width 0.3s;
 }
 
 .matename {
-    writing-mode: vertical-rl;
-    font-size: 1.8vh;
-    letter-spacing: 0.1vh;
-    font-family: "Titillium Web", sans-serif;
-    font-weight: 600;
+  writing-mode: vertical-rl;
+  font-size: 1.8vh;
+  letter-spacing: 0.1vh;
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 600;
 }
 
 .menu:hover {
-    background-color: black;
-    color: white;
+  background-color: black;
+  color: white;
 }
 
 .menu1:hover {
-    background-color: #F2A2B8;
-    color: white;
+  background-color: #f2a2b8;
+  color: white;
 }
 
 .menu2:hover {
-    background-color: #1722ff;
-    color: white;
+  background-color: #1722ff;
+  color: white;
 }
 
 .menu3:hover {
-    background-color: #00aa1a;
-    color: white;
+  background-color: #00aa1a;
+  color: white;
 }
 
 .menu4:hover {
-    background-color: #FF7E7E;
-    color: white;
+  background-color: #ff7e7e;
+  color: white;
 }
 
 .menu5:hover {
-    background-color: #DF0101;
-    color: white;
+  background-color: #df0101;
+  color: white;
 }
 
 /* 페이지 열리는 효과 */
 #open {
-    animation: open 0.7s ease forwards;
+  animation: open 0.7s ease forwards;
 }
 
 @keyframes open {
-    from {
-        transform: scaleX(0%);
-        visibility: visible;
-        transition-timing-function: ease-out;
-    }
+  from {
+    transform: scaleX(0%);
+    visibility: visible;
+    transition-timing-function: ease-out;
+  }
 
-    to {
-        transform: scaleX(100%);
-    }
+  to {
+    transform: scaleX(100%);
+  }
 }

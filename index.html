@@ -1,256 +1,292 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our DiARY</title>
+    <link rel="stylesheet" href="style.css" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Our DiARY</title>
-  <link rel="stylesheet" href="style.css" />
+    <script>
+      // Location Api && Weather Api
+      document.addEventListener("DOMContentLoaded", (event) => {
+        (function getLocation() {
+          const status = document.getElementById("status");
+          const iconSection = document.querySelector(".icon");
 
-  <script>
-    // Location Api && Weather Api
-    // 자바스크립트 즉시 실행 함수를 사용 - 무분별한 변수 사용 ,scope 오염 방지
+          if ("geolocation" in navigator) {
+            navigator.geolocation.getCurrentPosition(
+              (position) => {
+                const { latitude, longitude, accuracy } = position.coords;
+                const API_KEY = "572b476be1a55f071da59e7122385c95";
+                fetch(
+                  `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric&lang=kr`
+                )
+                  .then((res) => res.json())
+                  .then((data) => {
+                    const icon = data.weather[0].icon;
+                    const iconUrl = `http://openweathermap.org/img/wn/${icon}@2x.png`;
 
-    document.addEventListener("DOMContentLoaded", (event) => {
-      // 함수 블록 내에서 코드를 작성할 때 유용
-      // 제이쿼리 대신 사용 - 제이쿼리 fetch 활용 가능 - 앨범 강의 참고
-      // Weather api https://home.openweathermap.org/api_keys 접속 후 회원가입 필요(API 사용을 위한 API키 발급받기 위해)
-      // 무료 이용 기준 - 분당 60건 한달 - 1,000,000건.
-      (function getLocation() {
-        const status = document.getElementById("status");
-        const weatherTxt = document.getElementById("weather_txt");
-        const iconSection = document.querySelector(".icon");
-
-        if ("geolocation" in navigator) {
-          navigator.geolocation.getCurrentPosition(
-            (position) => {
-              const { latitude, longitude, accuracy } = position.coords;
-              const API_KEY = "572b476be1a55f071da59e7122385c95";
-              fetch(
-                `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric&lang=kr`
-              )
-                .then((res) => res.json())
-                .then((data) => {
-                  const icon = data.weather[0].icon;
-                  const iconUrl = `http://openweathermap.org/img/wn/${icon}@2x.png`;
-
-                  iconSection.setAttribute("src", iconUrl);
-                  // weatherTxt.textContent = data.weather[0].description;
-                });
-            },
-            (error) => {
-              console.log(`위치 정보를 가져올 수 없습니다: ${error.message}`);
-            },
-            {
-              enableHighAccuracy: true, // 정확도 우선 모드
-              timeout: 10000, // 10초 이내에 응답 없으면 에러 발생
-              maximumAge: 0, // 항상 최신 위치 정보 수집
-            }
-          );
-        } else {
-          console.log("브라우저가 위치 서비스를 지원하지 않습니다.");
-        }
-      })();
-    });
-
-    document.addEventListener("DOMContentLoaded", (event) => {
-      const modal = document.querySelector(".modal");
-      const modalOpen = document.querySelector(".modal_btn");
-      const modalClose = document.querySelector(".close_btn");
-
-      //열기 버튼을 눌렀을 때 모달팝업이 열림
-      modalOpen.addEventListener("click", function () {
-        //'on' class 추가
-        modal.classList.add("on");
+                    iconSection.setAttribute("src", iconUrl);
+                  });
+              },
+              (error) => {
+                console.log(`위치 정보를 가져올 수 없습니다: ${error.message}`);
+              },
+              {
+                enableHighAccuracy: true, // 정확도 우선 모드
+                timeout: 10000, // 10초 이내에 응답 없으면 에러 발생
+                maximumAge: 0,
+              }
+            );
+          } else {
+            console.log("브라우저가 위치 서비스를 지원하지 않습니다.");
+          }
+        })();
       });
-      //닫기 버튼을 눌렀을 때 모달팝업이 닫힘
-      modalClose.addEventListener("click", function () {
-        //'on' class 제거
-        modal.classList.remove("on");
+
+      document.addEventListener("DOMContentLoaded", (event) => {
+        const modal = document.querySelector(".modal");
+        const modalOpen = document.querySelector(".modal_btn");
+        const modalClose = document.querySelector(".close_btn");
+
+        //열기 버튼을 눌렀을 때 모달팝업이 열림
+        modalOpen.addEventListener("click", function () {
+          //'on' class 추가
+          modal.classList.add("on");
+        });
+        //닫기 버튼을 눌렀을 때 모달팝업이 닫힘
+        modalClose.addEventListener("click", function () {
+          //'on' class 제거
+          modal.classList.remove("on");
+        });
       });
-    });
-  </script>
-  <style>
-    @font-face {
-      font-family: "EF_YOONY";
-      src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/EF_YOONY.woff2") format("woff2");
-      font-weight: normal;
-      font-style: normal;
-    }
+    </script>
+    <style>
+      @font-face {
+        font-family: "EF_YOONY";
+        src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/EF_YOONY.woff2")
+          format("woff2");
+        font-weight: normal;
+        font-style: normal;
+      }
 
-    @font-face {
-      font-family: "UhBeeSe_hyun";
-      src: url("https://gcore.jsdelivr.net/gh/projectnoonnu/noonfonts_five@.2.0/UhBeeSe_hyun.woff") format("woff");
-      font-weight: normal;
-      font-style: normal;
-    }
+      @font-face {
+        font-family: "UhBeeSe_hyun";
+        src: url("https://gcore.jsdelivr.net/gh/projectnoonnu/noonfonts_five@.2.0/UhBeeSe_hyun.woff")
+          format("woff");
+        font-weight: normal;
+        font-style: normal;
+      }
 
-    @font-face {
-      font-family: "LeeSeoyun";
-      src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/LeeSeoyun.woff") format("woff");
-      font-weight: normal;
-      font-style: normal;
-    }
+      @font-face {
+        font-family: "LeeSeoyun";
+        src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/LeeSeoyun.woff")
+          format("woff");
+        font-weight: normal;
+        font-style: normal;
+      }
 
-    body {
-      background-image: url("https://cdn.discordapp.com/attachments/1254426162470584321/1262750543730704485/-001_10.png?ex=6697bb96&is=66966a16&hm=1d48977f629410af1461132ff890de769bb6e050fb8ed01e27d1364661d39f21&");
-      background-position: center;
-      background-size: cover;
-    }
+      body {
+        background-image: url("https://cdn.discordapp.com/attachments/1254426162470584321/1262750543730704485/-001_10.png?ex=6697bb96&is=66966a16&hm=1d48977f629410af1461132ff890de769bb6e050fb8ed01e27d1364661d39f21&");
+        background-position: center;
+        background-size: cover;
+      }
 
-    .diary {
-      background-color: #ffbaab;
-      outline: 6px solid white;
-      outline-offset: -15px;
-    }
+      .diary {
+        background-color: #ffbaab;
+        outline: 6px solid white;
+        outline-offset: -15px;
+      }
 
-    .title {
-      font-family: "UhBeeSe_hyun";
-      font-size: 5vh;
-      color: #ffffff;
-      padding-top: 300px;
-    }
+      .title {
+        font-family: "UhBeeSe_hyun";
+        font-size: 5vh;
+        color: #ffffff;
+        padding-top: 300px;
+      }
 
-    .weather {
-      font-family: "UhBeeSe_hyun";
-      font-size: 3vh;
-      color: #ffffff;
-    }
+      .weather {
+        font-family: "UhBeeSe_hyun";
+        font-size: 3vh;
+        color: #ffffff;
+      }
 
-    .weather .icon {
-      width: 100px;
-      height: auto;
-      margin-left: 10px;
-      /* 이미지와 텍스트 사이의 여백 조정 */
-    }
+      .weather .icon {
+        width: 100px;
+        height: auto;
+        margin-left: 10px;
+        /* 이미지와 텍스트 사이의 여백 조정 */
+      }
 
-    .diary img {
-      width: 40%;
-      height: auto;
-    }
+      .diary img {
+        width: 40%;
+        height: auto;
+      }
 
-    .diary p {
-      width: 18%;
-      height: 100px;
-      background: rgb(255, 255, 255);
-      border-radius: 100% 0 0 100%;
-      font-size: 2vh;
-      font-family: "EF_YOONY", "cursive";
-      margin: 30px 0 0 82%;
-      padding-top: 20px;
-    }
+      .diary p {
+        width: 18%;
+        height: 100px;
+        background: rgb(255, 255, 255);
+        border-radius: 100% 0 0 100%;
+        font-size: 2vh;
+        font-family: "EF_YOONY", "cursive";
+        margin: 30px 0 0 82%;
+        padding-top: 20px;
+      }
 
-    /*모달 관련*/
-    .modal_btn {
-      display: block;
-      border: none;
-      cursor: pointer;
-      transition: box-shadow 0.2s;
-    }
+      /*모달 관련*/
+      .modal_btn {
+        display: block;
+        border: none;
+        cursor: pointer;
+        transition: box-shadow 0.2s;
+      }
 
-    .modal.on {
-      display: block;
-    }
+      .modal.on {
+        display: block;
+      }
 
-    .modal {
-      /*팝업 배경*/
-      display: none;
-      /*평소에는 보이지 않도록*/
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
-      background: rgba(0, 0, 0, 0.5);
-    }
+      .modal {
+        /*팝업 배경*/
+        display: none;
+        /*평소에는 보이지 않도록*/
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        background: rgba(0, 0, 0, 0.5);
+      }
 
-    .modal .modal_popup {
-      /*팝업*/
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      padding: 20px;
-      background: #ffffff;
-      border-radius: 20px;
-    }
+      .modal .modal_popup {
+        /*팝업*/
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        background: #ffffff;
+        border-radius: 20px;
+      }
 
-    .modal .modal_popup .close_btn {
-      display: block;
-      padding: 10px 20px;
-      background-color: rgb(255, 0, 0);
-      border: none;
-      border-radius: 5px;
-      color: #fff;
-      cursor: pointer;
-      transition: box-shadow 0.2s;
-    }
-  </style>
-</head>
+      .modal .modal_popup .close_btn {
+        display: block;
+        padding: 10px 20px;
+        background-color: rgb(255, 0, 0);
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+        transition: box-shadow 0.2s;
+      }
+    </style>
+  </head>
 
-<body>
-  <div class="main">
-    <div class="diary">
-      <section class="title"><span>DiARY</span></section>
-      <img src="10.png" />
-      <p>
-        <a href="./introduce/intro_team.html" style="text-decoration: none; color: inherit">펼치기</a>
-      </p>
-      <!-- <section class="weather"></span></section> -->
-      <div class="weather">
-        <span class="modal_btn" style="position: relative; margin-right: 10%">오늘의 날씨 :
-          <img class="icon" style="position: absolute; transform: translateY(-25%)" />
-        </span>
+  <body>
+    <div class="main">
+      <div class="diary">
+        <section class="title"><span>DiARY</span></section>
+        <img src="10.png" />
+        <p>
+          <a
+            href="./introduce/intro_team.html"
+            style="text-decoration: none; color: inherit"
+            >펼치기</a
+          >
+        </p>
+        <!-- <section class="weather"></span></section> -->
+        <div class="weather">
+          <span class="modal_btn" style="position: relative; margin-right: 10%"
+            >오늘의 날씨 :
+            <img
+              class="icon"
+              style="position: absolute; transform: translateY(-25%)"
+            />
+          </span>
+        </div>
+      </div>
+      <div class="menu-container">
+        <div class="menu">
+          <span class="matename">
+            <a
+              href="./introduce/intro_team.html"
+              style="text-decoration: none; color: inherit"
+              >TEAM</a
+            ></span
+          >
+        </div>
+        <div class="menu1">
+          <span class="matename">
+            <a
+              href="./dayeon_Card.html"
+              style="text-decoration: none; color: inherit"
+              >DAYEON</a
+            ></span
+          >
+        </div>
+        <div class="menu2">
+          <span class="matename">
+            <a
+              href="./sujin_Card.html"
+              style="text-decoration: none; color: inherit"
+              >SUJIN</a
+            ></span
+          >
+        </div>
+        <div class="menu3">
+          <span class="matename">
+            <a
+              href="./hyunji/hyunji_Card.html"
+              style="text-decoration: none; color: inherit"
+              >HYUNJI</a
+            ></span
+          >
+        </div>
+        <div class="menu4">
+          <span class="matename">
+            <a
+              href="./suhee_Card.html"
+              style="text-decoration: none; color: inherit"
+              >SUHEE</a
+            ></span
+          >
+        </div>
+        <div class="menu5">
+          <span class="matename">
+            <a
+              href="./seungwoo_Card.html"
+              style="text-decoration: none; color: inherit"
+              >SEUNGWOO</a
+            ></span
+          >
+        </div>
+        <div class="menu">
+          <span class="matename">
+            <a
+              href="./comment.html"
+              style="text-decoration: none; color: inherit"
+              >GUEST</a
+            ></span
+          >
+        </div>
       </div>
     </div>
-    <div class="menu-container">
-      <div class="menu">
-        <span class="matename">
-          <a href="./introduce/intro_team.html" style="text-decoration: none; color: inherit">TEAM</a></span>
-      </div>
-      <div class="menu1">
-        <span class="matename">
-          <a href="./dayeon_Card.html" style="text-decoration: none; color: inherit">DAYEON</a></span>
-      </div>
-      <div class="menu2">
-        <span class="matename">
-          <a href="./sujin_Card.html" style="text-decoration: none; color: inherit">SUJIN</a></span>
-      </div>
-      <div class="menu3">
-        <span class="matename">
-          <a href="./hyunji/hyunji_Card.html" style="text-decoration: none; color: inherit">HYUNJI</a></span>
-      </div>
-      <div class="menu4">
-        <span class="matename">
-          <a href="./suhee_Card.html" style="text-decoration: none; color: inherit">SUHEE</a></span>
-      </div>
-      <div class="menu5">
-        <span class="matename">
-          <a href="./seungwoo_Card.html" style="text-decoration: none; color: inherit">SEUNGWOO</a></span>
-      </div>
-      <div class="menu">
-        <span class="matename">
-          <a href="./comment.html" style="text-decoration: none; color: inherit">GUEST</a></span>
+
+    <!--모달 팝업-->
+    <div class="modal">
+      <div class="modal_popup">
+        <h3>OpenWeathermap API 와 Geolocation API를 활용한 현재 날씨 기능</h3>
+        <p>
+          다이어리 메인화면에서 OpenWeathermap API(날씨 관련 API) 활용하여,
+          메인화면 접속 시 접속 유저의 Geolocation API(위치 정보 위도, 경도)
+          정보를 가져와 해당 지역의 기상 상황을 아이콘으로 표시 (비오면 비온다,
+          눈오면 눈온다, 해떠있다) 이 아이콘은 OpenWeathermap api 측에서 제공,
+          api 키를 발급 받아 현재 무료 플랜으로 분당 60번 call 및 월에 백만건
+          call 가능
+        </p>
+        <button type="button" class="close_btn">닫기</button>
       </div>
     </div>
-  </div>
-
-  <!--모달 팝업-->
-  <div class="modal">
-    <div class="modal_popup">
-      <h3>OpenWeathermap API 와 Geolocation API를 활용한 현재 날씨 기능</h3>
-      <p>
-        다이어리 메인화면에서 OpenWeathermap API(날씨 관련 API) 활용하여,
-        메인화면 접속 시 접속 유저의 Geolocation API(위치 정보 위도, 경도)
-        정보를 가져와 해당 지역의 기상 상황을 아이콘으로 표시 (비오면 비온다,
-        눈오면 눈온다, 해떠있다) 이 아이콘은 OpenWeathermap api 측에서 제공,
-        api 키를 발급 받아 현재 무료 플랜으로 분당 60번 call 및 월에 백만건
-        call 가능
-      </p>
-      <button type="button" class="close_btn">닫기</button>
-    </div>
-  </div>
-</body>
-
+  </body>
 </html>
